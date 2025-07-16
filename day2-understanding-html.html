@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/stylesheet.css">
+    <title>Day 2: Understanding HTML | From Zero to Developer, One Line at a Time</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-back">
+            <a href="day1-introduction.html">← Day 1: The Reality Check That Changed Everything</a>
+        </nav>
+        <nav class="nav-next">
+            <a href="day3-html-tables.html">Day 3: HTML Tables →</a>
+        </nav>
+    </header>
+
+    <main>
+            <section class="day2-header">
+                <h1>Day 2: Understanding HTML</h1>
+                <p><em><time datetime="2025-07-12">12 July, 2025</time></em></p>
+            </section>
+
+            <article>
+            <section class="day2-intro">
+                <p>For the past few weeks, I've been reading up on HTML and watching a lot of tutorials, trying to understand what's going on under the hood of websites. And honestly? Something just clicked for me as I reviewed HTML again!</p>
+                <p>You know how everyone talks about websites having "structure" and "architecture"? Well, I started thinking about HTML like it's actually building a human body - and suddenly everything made way more sense to me.</p>
+            </section>
+
+            <!-- What is HTML -->
+            <section class="'what-is-html">
+                <h2>What exactly is HTML?</h2>
+                <p>HTML stands for Hypertext Markup Language, but let's be real - that doesn't tell you much. What I've learned is that HTML is basically the blueprint for every web page you've ever visited. It's not the pretty colors or fancy animations - that's CSS and JavaScript doing their thing. HTML is purely about structure and meaning.</p>
+                <p>When you write HTML, you're basically telling the browser: "Hey, this text should be a heading, this part is a paragraph, this is a list, and this section over here? That's navigation." It's like being the architect before the interior designer shows up to make things look pretty.</p>
+            </section>
+
+            <!-- HTML boilerplate -->
+            <section class="html-boilerplate">
+                <h2>The HTML Boilerplate: Your Digital Brain 🧠</h2>
+                <p>Okay, so this is where my anatomy thing really started making sense to me. The HTML boilerplate - you know, all that <span id="html-tag">&lt;!DOCTYPE html&gt;</span>, <span id="html-tag">&lt;html&gt;</span>, <span id="html-tag">&lt;head&gt;</span>, and <span id="html-tag">&lt;body&gt;</span> stuff that looks super boring at first - I realized that's like the brain of your webpage.</p>
+                <div class="html-example">
+                    <code class="html-example-text">
+                        &lt;!DOCTYPE html&gt;<br>
+                        &nbsp;&nbsp;&lt;html lang="en"&gt;<br>
+                        &nbsp;&nbsp;&lt;head&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;My Webpage&lt;/title&gt;<br>
+                        &nbsp;&nbsp;&lt;/head&gt;<br>
+                        &nbsp;&nbsp;&lt;body&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span id="comment-tag">&lt;!-- Your content goes here --&gt;<br></span>
+                        &nbsp;&nbsp;&lt;/body&gt;<br>
+                        &nbsp;&nbsp;&lt;/html&gt;
+                    </code>
+                </div>
+                <p>The brain controls everything, right? It processes information, makes decision, and coordinates all the different parts of the body. That's exactly what the boilerplate does. It tells the browser what type of document this is, what language it's in, how to handle character encoding, and sets up the basic structure for everything else to function properly.</p>
+                <p>I used to skip over this part or just copy-paste it without thinking, but now I realize it's absolutely crucial. Without a proper boilerplate, your webpage is like a body without a functioning nervous system - things might still work, but not reliably or efficiently.</p>
+            </section>
+
+            <!-- Head and Navigation -->
+             <section class="head-and-navigation">
+                <h2>The Head and Navigation: Your Digital Face 😀</h2>
+                <p>Moving down our anatomical webpage, we have the <span id="html-tag">&lt;header&gt;</span> and <span id="html-tag">&lt;nav&gt;</span> elements. These are like the head and face of your website - the first thing people see and interact with.</p>
+                <p><em>(Okay, okay, I know technically the <span id="html-tag">&lt;header&gt;</span> and <span id="html-tag">&lt;nav&gt;</span> are nested inside the <span id="html-tag">&lt;body&gt;</span> section of HTML, but just roll with my metaphor here - it's all about the vibes, not perfect anatomical accuracy!)</em></p>
+                <p>The <span id="html-tag">&lt;header&gt;</span> usually contains your site's title, logo, maybe a tagline. It's the face that represents your brand. The <span id="html-tag">&lt;nav&gt;</span> is like the eyes and mouth - it helps user see where they can go and gives them a way to communicate their intent to navigate somewhere else.</p>
+                <div class="html-example">
+                    <code class="html-example-text">
+                        &lt;header&gt;<br>
+                        &nbsp;&nbsp;&lt;h1&gt;Your Website Title&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&lt;nav&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &nbsp;&nbsp;&lt;/nav&gt;<br>
+                        &lt;/header&gt;
+                    </code>
+                </div>
+             </section>
+
+             <!-- The Main Body -->
+              <section class="main-body">
+                <h2>The Main Body: Where Life Happens 💪🏻</h2>
+                <p>The <span id="html-tag">&lt;main&gt;</span> element is basically the body of your webpage. This is where all the important stuff lives - your articles, your product descriptions, your portfolio pieces, whatever makes people actually want to visit your site.</p>
+                <p>But here's what blew my mind: just like a human body has different organs that do specific jobs, the <span id="html-tag">&lt;main&gt;</span> element has all these different tags that each have their own function. It's like each tag is a different organ in the body:</p>
+                <div class="main-body-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tag</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span id="html-tag">&lt;section&gt;</span></td>
+                                <td>I think of these as major organ systems, like your cardiovascular or digestive system. Maybe you have a section for testimonials, another for your services, another for your blog posts. Each section groups related content together.</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">&lt;article&gt;</span></td>
+                                <td>These are like individuals organs with very specific jobs. A blog post, a product review, a news story - each article is a self-contained piece of content that could work on its own, like how your heart or liver has its own specific function.</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">&lt;div&gt;</span></td>
+                                <td>These are like connective tissue or muscle. They don't have semantic meaning on their own, but they help hold things together and group stuff for styling purposes.</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">&lt;form&gt;</span></td>
+                                <td>These are like the mouth and digestive system - they're how your website takes in information from users. Contact forms, search bars, login screens - they're all about collecting and processing inputs.</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">&lt;ul&gt;</span>, <span id="html-tag">&lt;ol&gt;</span>, and <span id="html-tag">&lt;li&gt;</span></td>
+                                <td>These are like the circulatory system, organizing information in a structured flow.<br>
+                                    Underordered lists (<span id="html-tag">&lt;ul&gt;</span>) are the capillaries spreading out everywhere.<br>
+                                    Ordered lists (<span id="html-tag">&lt;ol&gt;</span>) are major arteries with a specific sequence.<br>
+                                    List items (<span id="html-tag">&lt;li&gt;</span>) are individual blood cells carrying the actual content.</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">&lt;table&gt;</span></td>
+                                <td>When you need to display data in rows and columns, tables are like the skeletal system - they provide rigid structure for information that needs to be organized in a very specific way.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </section>
+
+              <!-- The Footer -->
+               <section class="the-footer">
+                <h2>The Footer: Standing Strong 🦵🏻</h2>
+                <p>Finally, we have the <span id="html-tag">&lt;footer&gt;</span> - the legs of our webpage. It might not seem as important as the head or body, but try walking without legs! The footer provides stability and often contains crucial informaiton like contact details, copyright notices, and additional navigation links.</p>
+                <div class="html-example">
+                    <code class="html-example-text">
+                        &lt;footer&gt;<br>
+                        &nbsp;&nbsp;&lt;p&gt;© 2025 Your Website. All rights reserved.&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;nav&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#privacy"&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#terms"&gt;Terms of Service&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &nbsp;&nbsp;&lt;/nav&gt;<br>
+                        &lt;/footer&gt;
+                    </code>
+                </div>
+               </section>
+
+               <!-- Why This Matters -->
+                <section id="why-this-matters">
+                    <h2>Why This Matters</h2>
+                    <p>Understanding HTML as anatomy isn't just a fun metaphor - it actually helps me to write better code. When I think about what each part does for the whole, I start to make better decisions about structure. I wouldn't put my liver in my foot, and I shouldn't put my main navigation in my footer.</p>
+                    <p>Plus, this semantic approach will make the website more accessible to screen readers and other assistive technologies. It's like giving the webpage a proper nervous system that can communicate effectively with different types of users.</p>
+                    <p>The more I've been working with HTML, the more I appreciate how thoughtfully designed it is. Every tag has a purpose, every element serves a function, and when they're all put together correctly, I can create something that's not just functional, but meaningful and accessible to everyone.</p>
+                    <p>So now, every time I'm building a HTML code, I ask myself
+                        <ul>
+                            <li>Where does this content belong in the body?</li>
+                            <li>What's its function?</li>
+                            <li>How does it relate to the other organs?</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <!-- Tomorrow's Goals -->
+                 <section id="tomorrow-goals">
+                    <h2>Tomorrow's Goals</h2>
+                    <ul class="goals">
+                        <li>Refresh on HTML tables</li>
+                        <li>Upload day 3's post</li>
+                        <li>Be gentle with myself - this is a marathon, not a sprint.</li>
+                    </ul>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who someone found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                 </section>
+        </article>
+</body>
+</html>
