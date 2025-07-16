@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="resources/css/stylesheet.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
     <title>Day 5: Checklists, Radio Buttons, and Datalists | From Zero to Developer, One Line at a Time</title>
 </head>
 
@@ -23,240 +23,242 @@
                 <p><em><time datetime="2025-07-15">15 July, 2025</time></em></p>
             </section>
 
-            <section class="day5-intro">
-                <p>I used to get so confused when to use checkboxes versus radio buttons. And don't even get me started on datalists - I discovered those way later than I should have! Let me share what I've learned about these three powerful form controls and how they've completely changed how I think about user selection.</p>
-            </section>
+            <article>
+                <section class="day5-intro">
+                    <p>I used to get so confused when to use checkboxes versus radio buttons. And don't even get me started on datalists - I discovered those way later than I should have! Let me share what I've learned about these three powerful form controls and how they've completely changed how I think about user selection.</p>
+                </section>
 
-            <section class="checkbox-vs-radio">
-                <h2>The Checkbox vs Radio Button Confusion</h2>
-                <p>I couldn't wrap my head around the difference between checkboxes and radio buttons. I thought I could use them randomly, but I know the user experience would not benefit from that. So I spent some time analyzing different forms that are available online, and then it finally clicked: it's all about how many options a user can select.</p>
-                <h3>Checkboxes: The "Pick Any Number" Control</h3>
-                <p>Checkboxes are perfect when users can select zero, one, or multiple options. I think of them as "yes/no" switches that work independently of each other.</p>
-                <div class="html-example">
+                <section class="checkbox-vs-radio">
+                    <h2>The Checkbox vs Radio Button Confusion</h2>
+                    <p>I couldn't wrap my head around the difference between checkboxes and radio buttons. I thought I could use them randomly, but I know the user experience would not benefit from that. So I spent some time analyzing different forms that are available online, and then it finally clicked: it's all about how many options a user can select.</p>
+                    <h3>Checkboxes: The "Pick Any Number" Control</h3>
+                    <p>Checkboxes are perfect when users can select zero, one, or multiple options. I think of them as "yes/no" switches that work independently of each other.</p>
+                    <div class="html-example">
+                        <fieldset>
+                            <legend>What programming languages do you know?</legend>
+                            <input type="checkbox" id="html" name="languages" value="html">
+                            <label for="html">HTML</label>
+                            <input type="checkbox" id="css" name="languages" value="css">
+                            <label for="css">CSS</label>
+                            <input type="checkbox" id="javascript" name="languages" value="javascript">
+                            <label for="javascript">JavaScript</label>
+                            <input type="checkbox" id="python" name="languages" value="python">
+                            <label for="python">Python</label>
+                            <input type="checkbox" id="java" name="languages" value="java">
+                            <label for="java">Java</label>
+                        </fieldset>
+                        <code class="html-example-tag">
+                            &lt;fieldset&gt;<br>
+                            &nbsp;&nbsp;&lt;legend&gt;What programming languages do you know?&lt;/legend&gt;<br>
+                            &nbsp;&nbsp;&lt;input type="checkbox" id="html" name="languages" value="html"&gt;<br>
+                            &nbsp;&nbsp;&lt;label for="html"&gt;HTML&lt;/label&gt;<br>
+                            &nbsp;&nbsp;&lt;input type="checkbox" id="css" name="languages" value="css"&gt;<br>
+                            &nbsp;&nbsp;&lt;label for="css"&gt;CSS&lt;/label&gt;<br>
+                            &nbsp;&nbsp;&lt;input type="checkbox" id="javascript" name="languages" value="javascript"&gt;<br>
+                            &nbsp;&nbsp;&lt;label for="javascript"&gt;JavaScript&lt;/label&gt;<br>
+                            &nbsp;&nbsp;&lt;input type="checkbox" id="python" name="languages" value="python"&gt;<br>
+                            &nbsp;&nbsp;&lt;label for="python"&gt;Python&lt;/label&gt;<br>
+                            &nbsp;&nbsp;&lt;input type="checkbox" id="java" name="languages" value="java"&gt;<br>
+                            &nbsp;&nbsp;&lt;label for="java"&gt;Java&lt;/label&gt;<br>
+                            &lt;/fieldset&gt;
+                        </code>
+                    </div>
+                    <p>What I love about this example is that a user could select none of these languages, just JavaScript, or all of them. Each checkbox operates independently. When the form is submitted, only the checked boxes send their values to the server.</p>
+                    <p>I also learned that giving the same <span id="html-tag">name</span> attribute makes them part of a group on the server side.</p>
+
+                    <h3>Radio Buttons: The "Pick Exactly One" Control</h3>
+                    <p>Radio buttons are for when users must choose exactly one option from a group. The key insight I had was understanding that radio buttons with the same <span id="html-tag">name</span> attribute automatically connected - selecting one deselects the others.</p>
+                    <div class="html-example">
+                        <fieldset>
+                            <legend>What's your experience level?</legend>
+                            <input type="radio" id="beginner" name="experience" value="beginner">
+                            <label for="beginner">Beginner (0-1 years)</label>
+                            <input type="radio" id="intermediate" name="experience" value="intermediate">
+                            <label for="intermediate">Intermediate (2-5 years)</label>
+                            <input type="radio" id="advanced" name="experience" value="advanced">
+                            <label for="advanced">Advanced (5+ years)</label>
+                        </fieldset>
+                        <code class="html-example-tag">
+                            &lt;fieldset&gt;<br>
+                            &nbsp;&nbsp;&lt;legend&gt;What's your experience level?&lt;/legend&gt;<br>
+                            &nbsp;&nbsp;&lt;input type="radio" id="beginner" name="experience" value="beginner"&gt;<br>
+                            &nbsp;&nbsp;&lt;label for="beginner"&gt;Beginner (0-1 years)&lt;/label&gt;<br>
+                            &nbsp;&nbsp;&lt;input type="radio" id="intermediate" name="experience" value="intermediate"&gt;<br>
+                            &nbsp;&nbsp;&lt;label for="intermediate"&gt;Intermediate (2-5 years)&lt;/label&gt;<br>
+                            &nbsp;&nbsp;&lt;input type="radio" id="advanced" name="experience" value="advanced"&gt;<br>
+                            &nbsp;&nbsp;&lt;label for="advanced"&gt;Advanced (5+ years)&lt;/label&gt;<br>
+                            &lt;/fieldset&gt;
+                        </code>
+                        <p>This question only makes sense if the user picks one experience level. The browser automatically handles the mutual exclusivity.</p>
+
+                        <h3>The Pattern I Use to Decide</h3>
+                        <p>Here's my mental framework:</p>
+                        <ul>
+                            <li>Checkboxes: "Which of these apply to you?" (0 or more)</li>
+                            <li>Radio Buttons: "Which one describes you best?" (exactly 1)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="real-word-examples">
+                    <h2>Some Real-World Examples</h2>
+                    <h3>Newsletter Preferences (Checkboxes)</h3>
                     <fieldset>
-                        <legend>What programming languages do you know?</legend>
-                        <input type="checkbox" id="html" name="languages" value="html">
-                        <label for="html">HTML</label>
-                        <input type="checkbox" id="css" name="languages" value="css">
-                        <label for="css">CSS</label>
-                        <input type="checkbox" id="javascript" name="languages" value="javascript">
-                        <label for="javascript">JavaScript</label>
-                        <input type="checkbox" id="python" name="languages" value="python">
-                        <label for="python">Python</label>
-                        <input type="checkbox" id="java" name="languages" value="java">
-                        <label for="java">Java</label>
+                        <legend>Email Preferences</legend>
+                        <input type="checkbox" id="weekly" name="newsletters" value="weekly">
+                        <label for="weekly">Weekly Newsletter</label>
+                        <input type="checkbox" id="product" name="newsletters" value="product">
+                        <label for="product">Product Updates</label>
+                        <input type="checkbox" id="promotions" name="newsletters" value="promotions">
+                        <label for="promotions">Special Promotions</label>
                     </fieldset>
-                    <code class="html-example-tag">
-                        &lt;fieldset&gt;<br>
-                        &nbsp;&nbsp;&lt;legend&gt;What programming languages do you know?&lt;/legend&gt;<br>
-                        &nbsp;&nbsp;&lt;input type="checkbox" id="html" name="languages" value="html"&gt;<br>
-                        &nbsp;&nbsp;&lt;label for="html"&gt;HTML&lt;/label&gt;<br>
-                        &nbsp;&nbsp;&lt;input type="checkbox" id="css" name="languages" value="css"&gt;<br>
-                        &nbsp;&nbsp;&lt;label for="css"&gt;CSS&lt;/label&gt;<br>
-                        &nbsp;&nbsp;&lt;input type="checkbox" id="javascript" name="languages" value="javascript"&gt;<br>
-                        &nbsp;&nbsp;&lt;label for="javascript"&gt;JavaScript&lt;/label&gt;<br>
-                        &nbsp;&nbsp;&lt;input type="checkbox" id="python" name="languages" value="python"&gt;<br>
-                        &nbsp;&nbsp;&lt;label for="python"&gt;Python&lt;/label&gt;<br>
-                        &nbsp;&nbsp;&lt;input type="checkbox" id="java" name="languages" value="java"&gt;<br>
-                        &nbsp;&nbsp;&lt;label for="java"&gt;Java&lt;/label&gt;<br>
-                        &lt;/fieldset&gt;
-                    </code>
-                </div>
-                <p>What I love about this example is that a user could select none of these languages, just JavaScript, or all of them. Each checkbox operates independently. When the form is submitted, only the checked boxes send their values to the server.</p>
-                <p>I also learned that giving the same <span id="html-tag">name</span> attribute makes them part of a group on the server side.</p>
 
-                <h3>Radio Buttons: The "Pick Exactly One" Control</h3>
-                <p>Radio buttons are for when users must choose exactly one option from a group. The key insight I had was understanding that radio buttons with the same <span id="html-tag">name</span> attribute automatically connected - selecting one deselects the others.</p>
-                <div class="html-example">
+                    <h3>Payment Method (Radio Buttons</h3>
                     <fieldset>
-                        <legend>What's your experience level?</legend>
-                        <input type="radio" id="beginner" name="experience" value="beginner">
-                        <label for="beginner">Beginner (0-1 years)</label>
-                        <input type="radio" id="intermediate" name="experience" value="intermediate">
-                        <label for="intermediate">Intermediate (2-5 years)</label>
-                        <input type="radio" id="advanced" name="experience" value="advanced">
-                        <label for="advanced">Advanced (5+ years)</label>
+                        <legend>Payment Method</legend>
+                        <input type="radio" id="credit" name="payment" value="credit">
+                        <label for="credit">Credit Card</label>
+                        <input type="radio" id="paypal" name="payment" value="paypal">
+                        <label for="paypal">PayPal</label>
+                        <input type="radio" id="cash" name="payment" value="cash">
+                        <label for="cash">Cash on Delivery</label>
                     </fieldset>
-                    <code class="html-example-tag">
-                        &lt;fieldset&gt;<br>
-                        &nbsp;&nbsp;&lt;legend&gt;What's your experience level?&lt;/legend&gt;<br>
-                        &nbsp;&nbsp;&lt;input type="radio" id="beginner" name="experience" value="beginner"&gt;<br>
-                        &nbsp;&nbsp;&lt;label for="beginner"&gt;Beginner (0-1 years)&lt;/label&gt;<br>
-                        &nbsp;&nbsp;&lt;input type="radio" id="intermediate" name="experience" value="intermediate"&gt;<br>
-                        &nbsp;&nbsp;&lt;label for="intermediate"&gt;Intermediate (2-5 years)&lt;/label&gt;<br>
-                        &nbsp;&nbsp;&lt;input type="radio" id="advanced" name="experience" value="advanced"&gt;<br>
-                        &nbsp;&nbsp;&lt;label for="advanced"&gt;Advanced (5+ years)&lt;/label&gt;<br>
-                        &lt;/fieldset&gt;
-                    </code>
-                    <p>This question only makes sense if the user picks one experience level. The browser automatically handles the mutual exclusivity.</p>
 
-                    <h3>The Pattern I Use to Decide</h3>
-                    <p>Here's my mental framework:</p>
-                    <ul>
-                        <li>Checkboxes: "Which of these apply to you?" (0 or more)</li>
-                        <li>Radio Buttons: "Which one describes you best?" (exactly 1)</li>
-                    </ul>
-                </div>
-            </section>
+                    <h3>Required Field</h3>
+                    <p>One last thing I learned is that you can make a checkbox or radio button (or any form fields) required by adding the <span id="html-tag">required</span> attribute. This prevents form submission until the user selects at least one option.</p>
+                    <p>For example:</p>
+                    <div class="html-example">
+                        <code class="html-example-tag">
+                        &lt;input type="radio" id="credit" name="payment" value="credit" required&gt;
+                        </code>
+                    </div>
+                </section>
 
-            <section class="real-word-examples">
-                <h2>Some Real-World Examples</h2>
-                <h3>Newsletter Preferences (Checkboxes)</h3>
-                <fieldset>
-                    <legend>Email Preferences</legend>
-                    <input type="checkbox" id="weekly" name="newsletters" value="weekly">
-                    <label for="weekly">Weekly Newsletter</label>
-                    <input type="checkbox" id="product" name="newsletters" value="product">
-                    <label for="product">Product Updates</label>
-                    <input type="checkbox" id="promotions" name="newsletters" value="promotions">
-                    <label for="promotions">Special Promotions</label>
-                </fieldset>
-
-                <h3>Payment Method (Radio Buttons</h3>
-                <fieldset>
-                    <legend>Payment Method</legend>
-                    <input type="radio" id="credit" name="payment" value="credit">
-                    <label for="credit">Credit Card</label>
-                    <input type="radio" id="paypal" name="payment" value="paypal">
-                    <label for="paypal">PayPal</label>
-                    <input type="radio" id="cash" name="payment" value="cash">
-                    <label for="cash">Cash on Delivery</label>
-                </fieldset>
-
-                <h3>Required Field</h3>
-                <p>One last thing I learned is that you can make a checkbox or radio button (or any form fields) required by adding the <span id="html-tag">required</span> attribute. This prevents form submission until the user selects at least one option.</p>
-                <p>For example:</p>
-                <div class="html-example">
-                    <code class="html-example-tag">
-                    &lt;input type="radio" id="credit" name="payment" value="credit" required&gt;
-                    </code>
-                </div>
-            </section>
-
-            <section class="datalist">
-                <h2>The Datalist Discovery</h2>
-                <p>Now, onto Datalists! Datalists were my favourite discovery in HTML5. They provide suggestions while still allowing users to type whatever they want. Pretty cool, right?</p>
-                <div class="html-example">
-                    <label for="city">City:</label>
-                    <input type="text" id="city" name="city" list="cities">
-                    <datalist id="cities">
-                        <option value="newYork">New York</option>
-                        <option value="losAngeles">Los Angeles</option>
-                        <option value="chicago">Chicago</option>
-                        <option value="houston">Houston</option>
-                        <option value="phoenix">Phoenix</option>
-                    </datalist>
-                    <br>
-                <code class="html-tag-example">
-                    &lt;label for="city"&gt;City:&lt;/label&gt;<br>
-                    &lt;input type="text" id="city" name="city" list="cities"&gt;<br>
-                    &lt;datalist id="cities"&gt;<br>
-                    &nbsp;&nbsp;&lt;option value="newYork"&gt;New York&lt;/option&gt;<br>
-                    &nbsp;&nbsp;&lt;option value="losAngeles"&gt;Los Angeles&lt;/option&gt;<br>
-                    &nbsp;&nbsp;&lt;option value="chicago"&gt;Chicago&lt;/option&gt;<br>
-                    &nbsp;&nbsp;&lt;option value="houston"&gt;Houston&lt;/option&gt;<br>
-                    &nbsp;&nbsp;&lt;option value="phoenix"&gt;Phoenix&lt;/option&gt;<br>
-                </code>
-                </div>
-                <p>When users start typing in the input, they will see a dropdown with matching suggestions. But they can also type in the city that they're in if it's not listed, the datalist doesn't restrict their choices.</p>
-            </section>
-
-            <section class="learning-points">
-                <h2>Main Learning Points</h2>
-                <h3>Proper Labeling</h3>
-                <p>Every checkbox, radio button, and input needs proper labeling:</p>
-                <div class="html-example">
-                    <code class="html-example-tag">
-                        &lt;input type="checkbox" id="agree" value="yes"&gt;<br>
-                        &lt;label for="agree"&gt;I agree to the terms and conditions&lt;/label&gt;
-                    </code>
-                </div>
-                <h3>Fieldset and Legend</h3>
-                <p>For groups of related controls, fieldsets and legends are crucial for screen readers.</p>
-                <div class="html-example">
-                    <code class="html-example-tag">
-                        &lt;fieldset&gt;<br>
-                        &nbsp;&nbsp;&lt;legend&gt;Delivery Preferences&lt;/legend&gt;<br>
-                        &nbsp;&nbsp;&lt;input type="radio: id="standard" name="delivery" value="standard"&gt;<br>
-                        &nbsp;&nbsp;&lt;label for="standard"&gt;Standard Delivery&lt;/label&gt;<br>
-                        &nbsp;&nbsp;&lt;input type="radio: id="express" name="delivery" value="express"&gt;<br>
-                        &nbsp;&nbsp;&lt;label for="express"&gt;Express Delivery&lt;/label&gt;<br>
-                        &lt;/fieldset&gt;
-                    </code>
-                </div>
-                <h3>Never Forget The <span id="html-tag-h3">name</span> Attribute</h3>
-                <p>Radio buttons without the same <span id="html-tag">name</span> attribute don't work as a group.</p>
-                <div class="html-example">
-                    <code class="html-example-tag">
-                        <span id="comment-tag">&lt;!-- This is wrong --&gt;</span><br>
-                        &lt;input type="radio" id="yes" value="yes"&gt;<br>
-                        &lt;input type="radio" id="no" value="no"&gt;<br>
+                <section class="datalist">
+                    <h2>The Datalist Discovery</h2>
+                    <p>Now, onto Datalists! Datalists were my favourite discovery in HTML5. They provide suggestions while still allowing users to type whatever they want. Pretty cool, right?</p>
+                    <div class="html-example">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city" list="cities">
+                        <datalist id="cities">
+                            <option value="newYork">New York</option>
+                            <option value="losAngeles">Los Angeles</option>
+                            <option value="chicago">Chicago</option>
+                            <option value="houston">Houston</option>
+                            <option value="phoenix">Phoenix</option>
+                        </datalist>
                         <br>
-                        <span id="comment-tag">&lt;!-- This is right --&gt;</span><br>
-                        &lt;input type="radio" id="yes" name="answer" value="yes"&gt;<br>
-                        &lt;input type="radio" id="no" name="answer" value="no"&gt;
-                    </code>
-                </div>
-                <h3>Always Make Sure The Datalist <span id="html-tag-h3">id</span> must match the input's <span id="html-tag-h3">list</span> attribute.</h3>
-                <div class="html-example">
-                    <code class="html-example-text">
-                        <span id="comment-tag">&lt;!-- This is wrong --&gt;</span><br>
-                        &lt;input type="text" list="cities" name="city"&gt;<br>
-                        &lt;datalist id="city-list"&gt;<br>
-                        &nbsp;&nbsp;&lt;option value="newYork"&gt;New York&lt;/option&gt;<br>
-                        &lt;/datalist&gt;<br>
-                        <br>
-                        <span id="comment-tag">&lt;!-- This is right --&gt;</span><br>
-                        &lt;input type="text" list="cities" name="city"&gt;<br>
+                    <code class="html-tag-example">
+                        &lt;label for="city"&gt;City:&lt;/label&gt;<br>
+                        &lt;input type="text" id="city" name="city" list="cities"&gt;<br>
                         &lt;datalist id="cities"&gt;<br>
                         &nbsp;&nbsp;&lt;option value="newYork"&gt;New York&lt;/option&gt;<br>
-                        &lt;/datalist&gt;
+                        &nbsp;&nbsp;&lt;option value="losAngeles"&gt;Los Angeles&lt;/option&gt;<br>
+                        &nbsp;&nbsp;&lt;option value="chicago"&gt;Chicago&lt;/option&gt;<br>
+                        &nbsp;&nbsp;&lt;option value="houston"&gt;Houston&lt;/option&gt;<br>
+                        &nbsp;&nbsp;&lt;option value="phoenix"&gt;Phoenix&lt;/option&gt;<br>
                     </code>
-                </div>
-            </section>
+                    </div>
+                    <p>When users start typing in the input, they will see a dropdown with matching suggestions. But they can also type in the city that they're in if it's not listed, the datalist doesn't restrict their choices.</p>
+                </section>
 
-            <section class="what-i-use">
-                <h2>What I Use Each Control For Now</h2>
-                <p>I've developed clear patterns for when to use each control:</p>
-                <div>
-                    <h3>Checkboxes for:</h3>
-                    <ul>
-                        <li>Features to enable/disable</li>
-                        <li>Multiple selections from a List</li>
-                        <li>Consent and agreement checkboxes</li>
-                        <li>Subscription preferences</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Radio Buttons for:</h3>
-                    <ul>
-                        <li>Mutually exclusive choices</li>
-                        <li>Settings with only one valid option</li>
-                        <li>Survey questions with single answers</li>
-                        <li>Payment or shipping method selection</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Datalists for:</h3>
-                    <ul>
-                        <li>City, state, or country fields</li>
-                        <li>Product categories or tags</li>
-                        <li>Any field where there are commmon answers but flexibility is needed</li>
-                        <li>Auto-complete scenarios without restricting user input</li>
-                    </ul>
-                </div>
-                <p>Before I understood these controls properly, my forms (in practice) would be clunky and confusing. Now, I can create intuitive selection experiences that guide users naturally through their choices. The key insight was to understand that form controls aren't just about collecting data - they're about communicating intent and making the user's decision-making process as smooth as possible.</p>
-            </section>
+                <section class="learning-points">
+                    <h2>Main Learning Points</h2>
+                    <h3>Proper Labeling</h3>
+                    <p>Every checkbox, radio button, and input needs proper labeling:</p>
+                    <div class="html-example">
+                        <code class="html-example-tag">
+                            &lt;input type="checkbox" id="agree" value="yes"&gt;<br>
+                            &lt;label for="agree"&gt;I agree to the terms and conditions&lt;/label&gt;
+                        </code>
+                    </div>
+                    <h3>Fieldset and Legend</h3>
+                    <p>For groups of related controls, fieldsets and legends are crucial for screen readers.</p>
+                    <div class="html-example">
+                        <code class="html-example-tag">
+                            &lt;fieldset&gt;<br>
+                            &nbsp;&nbsp;&lt;legend&gt;Delivery Preferences&lt;/legend&gt;<br>
+                            &nbsp;&nbsp;&lt;input type="radio: id="standard" name="delivery" value="standard"&gt;<br>
+                            &nbsp;&nbsp;&lt;label for="standard"&gt;Standard Delivery&lt;/label&gt;<br>
+                            &nbsp;&nbsp;&lt;input type="radio: id="express" name="delivery" value="express"&gt;<br>
+                            &nbsp;&nbsp;&lt;label for="express"&gt;Express Delivery&lt;/label&gt;<br>
+                            &lt;/fieldset&gt;
+                        </code>
+                    </div>
+                    <h3>Never Forget The <span id="html-tag-h3">name</span> Attribute</h3>
+                    <p>Radio buttons without the same <span id="html-tag">name</span> attribute don't work as a group.</p>
+                    <div class="html-example">
+                        <code class="html-example-tag">
+                            <span id="comment-tag">&lt;!-- This is wrong --&gt;</span><br>
+                            &lt;input type="radio" id="yes" value="yes"&gt;<br>
+                            &lt;input type="radio" id="no" value="no"&gt;<br>
+                            <br>
+                            <span id="comment-tag">&lt;!-- This is right --&gt;</span><br>
+                            &lt;input type="radio" id="yes" name="answer" value="yes"&gt;<br>
+                            &lt;input type="radio" id="no" name="answer" value="no"&gt;
+                        </code>
+                    </div>
+                    <h3>Always Make Sure The Datalist <span id="html-tag-h3">id</span> must match the input's <span id="html-tag-h3">list</span> attribute.</h3>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            <span id="comment-tag">&lt;!-- This is wrong --&gt;</span><br>
+                            &lt;input type="text" list="cities" name="city"&gt;<br>
+                            &lt;datalist id="city-list"&gt;<br>
+                            &nbsp;&nbsp;&lt;option value="newYork"&gt;New York&lt;/option&gt;<br>
+                            &lt;/datalist&gt;<br>
+                            <br>
+                            <span id="comment-tag">&lt;!-- This is right --&gt;</span><br>
+                            &lt;input type="text" list="cities" name="city"&gt;<br>
+                            &lt;datalist id="cities"&gt;<br>
+                            &nbsp;&nbsp;&lt;option value="newYork"&gt;New York&lt;/option&gt;<br>
+                            &lt;/datalist&gt;
+                        </code>
+                    </div>
+                </section>
 
-            <section class="tomorrow-goals">
-                <h2>Tomorrow's Goals</h2>
-                <ul class="goals">
-                    <li>Dive deeper into Form Validation Patterns</li>
-                    <li>Write up learning points and post on Form Validation Patterns</li>
-                    <li>Figure out how to get everything on GitHub</li>
-                </ul>
-                <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who someone found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
-            </section>
+                <section class="what-i-use">
+                    <h2>What I Use Each Control For Now</h2>
+                    <p>I've developed clear patterns for when to use each control:</p>
+                    <div>
+                        <h3>Checkboxes for:</h3>
+                        <ul>
+                            <li>Features to enable/disable</li>
+                            <li>Multiple selections from a List</li>
+                            <li>Consent and agreement checkboxes</li>
+                            <li>Subscription preferences</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Radio Buttons for:</h3>
+                        <ul>
+                            <li>Mutually exclusive choices</li>
+                            <li>Settings with only one valid option</li>
+                            <li>Survey questions with single answers</li>
+                            <li>Payment or shipping method selection</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Datalists for:</h3>
+                        <ul>
+                            <li>City, state, or country fields</li>
+                            <li>Product categories or tags</li>
+                            <li>Any field where there are commmon answers but flexibility is needed</li>
+                            <li>Auto-complete scenarios without restricting user input</li>
+                        </ul>
+                    </div>
+                    <p>Before I understood these controls properly, my forms (in practice) would be clunky and confusing. Now, I can create intuitive selection experiences that guide users naturally through their choices. The key insight was to understand that form controls aren't just about collecting data - they're about communicating intent and making the user's decision-making process as smooth as possible.</p>
+                </section>
+
+                <section class="tomorrow-goals">
+                    <h2>Tomorrow's Goals</h2>
+                    <ul class="goals">
+                        <li>Dive deeper into Form Validation Patterns</li>
+                        <li>Write up learning points and post on Form Validation Patterns</li>
+                        <li>Figure out how to get everything on GitHub</li>
+                    </ul>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who someone found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                </section>
+            </article>
     </main>
 </body>
 </html>

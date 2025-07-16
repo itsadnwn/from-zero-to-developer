@@ -1,0 +1,22 @@
+ul.goals {
+    list-style-type: "✔️";
+}
+
+ul.goals li {
+    padding-left: 5px;
+}
+
+ul.blog {
+    list-style-type: "📝";
+}
+
+ul.blog li {
+    padding-left: 5px;
+}
+
+#html-tag {
+    font-family: monospace;
+    background-color: #cfe1cb;
+    padding: 3px 10px;
+    border-radius: 5px;
+}

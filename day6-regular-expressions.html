@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="resources/css/stylesheet.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
     <title>Day 6: Regular Expressions | From Zero to Developer, One Line at a Time</title>
 </head>
 
@@ -13,7 +13,7 @@
             <a href="day5-checkboxes-radio-datalist.html">← Day 5: Checklists, Radio Buttons, and Datalists</a>
         </nav>
         <nav class="nav-next">
-            <a href="#">Day 7: Coming soon →</a>
+            <a href="day7-git-github.html">Day 7: Git & GitHub →</a>
         </nav>
     </header>
 
@@ -23,324 +23,326 @@
                 <p><em><time datetime="2025-07-16">16 July, 2025</time></em></p>
             </section>
 
-            <section class="day6-intro">
-                <p>Before I begin today's post, I just wanted to a share a little tiny win: <strong>I managed to upload this journey-blog onto GitHub!</strong> It took some reading and plenty of YouTube videos, but I've (kinda) figured it out and will post about what I've learned tomorrow!</p>
-                <p>Okay, now back to today's focus: Regular Expressions, also known as Regex.</p>
-                <p>I'll be honest - when I first encountered regular expressions, they looked like someone had fallen asleep on their keyboard. All those symbols and slashes seemed completely incomprehensible, so I took some time to dive in and understand it better. And after actually trying to use them, I've come to realize that they're one of those tools that... once you get it, you wonder how you ever lived without them.</p>
-            </section>
+            <article>
+                <section class="day6-intro">
+                    <p>Before I begin today's post, I just wanted to a share a little tiny win: <strong>I managed to upload this journey-blog onto GitHub!</strong> It took some reading and plenty of YouTube videos, but I've (kinda) figured it out and will post about what I've learned tomorrow!</p>
+                    <p>Okay, now back to today's focus: Regular Expressions, also known as Regex.</p>
+                    <p>I'll be honest - when I first encountered regular expressions, they looked like someone had fallen asleep on their keyboard. All those symbols and slashes seemed completely incomprehensible, so I took some time to dive in and understand it better. And after actually trying to use them, I've come to realize that they're one of those tools that... once you get it, you wonder how you ever lived without them.</p>
+                </section>
 
-            <section class="lightbulb-moment">
-                <h2>The Lightbulb Moment</h2>
-                <p>The breakthrough for me was understanding that regex isn't about memorizing cryptic symbols, it's also <em>describing patterns</em>. Instead of searching for "name@email.com" specifically, I could create a pattern that finds <strong>any</strong> email address. That shift from thinking about exact matches to pattern matching was everything.</p>
-                <p>I started with simple literal characters. The pattern <span id="html-tag">cat</span> matches the word "cat" - nothing fancy there. Stay with me though. But then I learned about the dot (<span id="html-tag">.</span>) which matches any single character, and suddenly <span id="html-tag">c.t</span> could match "cat", "cut", "cot", and so on.</p>
-                <p>That's when it clicked: these weren't random symbols but a logical system for describing what I wanted to find.</p>
-            </section>
+                <section class="lightbulb-moment">
+                    <h2>The Lightbulb Moment</h2>
+                    <p>The breakthrough for me was understanding that regex isn't about memorizing cryptic symbols, it's also <em>describing patterns</em>. Instead of searching for "name@email.com" specifically, I could create a pattern that finds <strong>any</strong> email address. That shift from thinking about exact matches to pattern matching was everything.</p>
+                    <p>I started with simple literal characters. The pattern <span id="html-tag">cat</span> matches the word "cat" - nothing fancy there. Stay with me though. But then I learned about the dot (<span id="html-tag">.</span>) which matches any single character, and suddenly <span id="html-tag">c.t</span> could match "cat", "cut", "cot", and so on.</p>
+                    <p>That's when it clicked: these weren't random symbols but a logical system for describing what I wanted to find.</p>
+                </section>
 
-            <section class="regex-building-blocks">
-                <h2>The Building Blocks</h2>
-                <p>Once I got past the initial intimidation, I focused on the core concepts that do most of the heavy liftings:</p>
-                <h3>Metacharacters (Special Characters)</h3>
-                <p>Metacharacters are the fundamental special characters that have meaning beyond their literal value.</p>
-                <table>
-                    <thead>
-                        <th>Character</th>
-                        <th>Description</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span id="html-tag">.</span></td>
-                            <td>Matches any single character (except newline)</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">\</span></td>
-                            <td>Escape acharacter - makes special characters literal. For example, <span id="html-tag">\.</span> would make the period literal.</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3>Quantifiers</h3>
-                <p>Quantifiers are a subset of metacharacters that specify how many times something should match.</p>
-                <table>
-                    <thead>
-                        <th>Quantifier</th>
-                        <th>Description</th>
-                        <th>Example</th>
-                        <th>Matches</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span id="html-tag">*</span></td>
-                            <td>0 or more of preceding element</td>
-                            <td><span id="html-tag">colou*r</span></td>
-                            <td>color, colour, colouur</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">+</span></td>
-                            <td>1 or more of preceding element</td>
-                            <td><span id="html-tag">colou+r</span></td>
-                            <td>colour, colouur. (not color)</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">?</span></td>
-                            <td>0 or 1 of preceding element</td>
-                            <td><span id="html-tag">colou?r</span></td>
-                            <td>color, colour</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">{n}</span></td>
-                            <td>Exactly <em>n</em> occurrences</td>
-                            <td><span id="html-tag">\d{3}</span></td>
-                            <td>Exactly 3 digits</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">{n, }</span></td>
-                            <td><em>n</em> or more occurrences</td>
-                            <td><span id="html-tag">\d{3,}</span></td>
-                            <td>3 or more digits</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">{n,m}</span></td>
-                            <td>Between <em>n</em> and <em>m</em> occurrences</td>
-                            <td><span id="html-tag">\d{3,5}</span></td>
-                            <td>3, 4, or 5 digits</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3>Anchors (Position Makers)</h3>
-                <p>Anchors are position-based metacharacters that don't consume characters but match locations.</p>
-                <table>
-                    <thead>
-                        <th>Anchor</th>
-                        <th>Description</th>
-                        <th>Example</th>
-                        <th>Matches</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span id="html-tag">^</span></td>
-                            <td>Start of line/string</td>
-                            <td><span id="html-tag">^Hello</span></td>
-                            <td>"Hello" at the beginning of the line</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">$</span></td>
-                            <td>End of line/string</td>
-                            <td><span id="html-tag">world$</span></td>
-                            <td>"world" at the end of the line</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">\b</span></td>
-                            <td>Word boundary</td>
-                            <td><span id="html-tag">\bcat\b</span></td>
-                            <td>"cat" as a whole word, not in "catch"</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">\B</span></td>
-                            <td>Non-word boundary</td>
-                            <td><span id="html-tag">\Bcat\B</span></td>
-                            <td>"cat" inside words like "locate"</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">\A</span></td>
-                            <td>Start of the string (absolute)</td>
-                            <td><span id="html-tag">\AHello</span></td>
-                            <td>"Hello" at the very start of the string</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">\Z</span></td>
-                            <td>End of the string (absolute)</td>
-                            <td><span id="html-tag">world\Z</span></td>
-                            <td>"world" at the very end of the string</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3>Character Classes</h3>
-                <p>Character classes define sets of characters that match at a position.</p>
-                <h4>Predefined Character Classes</h4>
-                <table>
-                    <thead>
-                        <th>Class</th>
-                        <th>Description</th>
-                        <th>Equivalent</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span id="html-tag">\d</span></td>
-                            <td>Any digit</td>
-                            <td><span id="html-tag">[0-9]</span></td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">\D</span></td>
-                            <td>Any non-digit</td>
-                            <td><span id="html-tag">[^0-9]</span></td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">\w</span></td>
-                            <td>Word character</td>
-                            <td><span id="html-tag">[a-zA-Z0-9_]</span></td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">\W</span></td>
-                            <td>Non-word character</td>
-                            <td><span id="html-tag">[^a-zA-Z0-9_]</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h4>Custom Character classes</h4>
-                <table>
-                    <thead>
-                        <th>Pattern</th>
-                        <th>Description</th>
-                        <th>Example</th>
-                        <th>Matches</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span id="html-tag">[abc]</span></td>
-                            <td>Any of the characters a, b, or c</td>
-                            <td><span id="html-tag">[aeiou]</span></td>
-                            <td>Any vowel</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">[^abc]</span></td>
-                            <td>Any character except a, b, or c</td>
-                            <td><span id="html-tag">[^aeiou]</span></td>
-                            <td>Any consonant</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">[a-z]</span></td>
-                            <td>Any lowercase letter</td>
-                            <td><span id="html-tag">[a-z]+</span></td>
-                            <td>Lowercase words</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">[A-Z]</span></td>
-                            <td>Any uppercase letter</td>
-                            <td><span id="html-tag">[A-Z]+</span></td>
-                            <td>Uppercase words</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">[0-9]</span></td>
-                            <td>Any digit</td>
-                            <td><span id="html-tag">[0-9]{4}</span></td>
-                            <td>4-digit number</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">[a-zA-Z]</span></td>
-                            <td>Any letter (upper or lower)</td>
-                            <td><span id="html-tag">[a-zA-Z]+</span></td>
-                            <td>Any word</td>
-                        </tr>
-                        <tr>
-                            <td><span id="html-tag">]a-zA-Z0-9]</span></td>
-                            <td>Any alphanumeric character</td>
-                            <td><span id="html-tag">[a-zA-Z0-9]+</span></td>
-                            <td>Username format</td>
-                        </tr>
-                    </tbody>
+                <section class="regex-building-blocks">
+                    <h2>The Building Blocks</h2>
+                    <p>Once I got past the initial intimidation, I focused on the core concepts that do most of the heavy liftings:</p>
+                    <h3>Metacharacters (Special Characters)</h3>
+                    <p>Metacharacters are the fundamental special characters that have meaning beyond their literal value.</p>
+                    <table>
+                        <thead>
+                            <th>Character</th>
+                            <th>Description</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span id="html-tag">.</span></td>
+                                <td>Matches any single character (except newline)</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">\</span></td>
+                                <td>Escape acharacter - makes special characters literal. For example, <span id="html-tag">\.</span> would make the period literal.</td>
+                            </tr>
+                        </tbody>
                     </table>
-            </section>
+                    <h3>Quantifiers</h3>
+                    <p>Quantifiers are a subset of metacharacters that specify how many times something should match.</p>
+                    <table>
+                        <thead>
+                            <th>Quantifier</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>Matches</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span id="html-tag">*</span></td>
+                                <td>0 or more of preceding element</td>
+                                <td><span id="html-tag">colou*r</span></td>
+                                <td>color, colour, colouur</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">+</span></td>
+                                <td>1 or more of preceding element</td>
+                                <td><span id="html-tag">colou+r</span></td>
+                                <td>colour, colouur. (not color)</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">?</span></td>
+                                <td>0 or 1 of preceding element</td>
+                                <td><span id="html-tag">colou?r</span></td>
+                                <td>color, colour</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">{n}</span></td>
+                                <td>Exactly <em>n</em> occurrences</td>
+                                <td><span id="html-tag">\d{3}</span></td>
+                                <td>Exactly 3 digits</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">{n, }</span></td>
+                                <td><em>n</em> or more occurrences</td>
+                                <td><span id="html-tag">\d{3,}</span></td>
+                                <td>3 or more digits</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">{n,m}</span></td>
+                                <td>Between <em>n</em> and <em>m</em> occurrences</td>
+                                <td><span id="html-tag">\d{3,5}</span></td>
+                                <td>3, 4, or 5 digits</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>Anchors (Position Makers)</h3>
+                    <p>Anchors are position-based metacharacters that don't consume characters but match locations.</p>
+                    <table>
+                        <thead>
+                            <th>Anchor</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>Matches</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span id="html-tag">^</span></td>
+                                <td>Start of line/string</td>
+                                <td><span id="html-tag">^Hello</span></td>
+                                <td>"Hello" at the beginning of the line</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">$</span></td>
+                                <td>End of line/string</td>
+                                <td><span id="html-tag">world$</span></td>
+                                <td>"world" at the end of the line</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">\b</span></td>
+                                <td>Word boundary</td>
+                                <td><span id="html-tag">\bcat\b</span></td>
+                                <td>"cat" as a whole word, not in "catch"</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">\B</span></td>
+                                <td>Non-word boundary</td>
+                                <td><span id="html-tag">\Bcat\B</span></td>
+                                <td>"cat" inside words like "locate"</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">\A</span></td>
+                                <td>Start of the string (absolute)</td>
+                                <td><span id="html-tag">\AHello</span></td>
+                                <td>"Hello" at the very start of the string</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">\Z</span></td>
+                                <td>End of the string (absolute)</td>
+                                <td><span id="html-tag">world\Z</span></td>
+                                <td>"world" at the very end of the string</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>Character Classes</h3>
+                    <p>Character classes define sets of characters that match at a position.</p>
+                    <h4>Predefined Character Classes</h4>
+                    <table>
+                        <thead>
+                            <th>Class</th>
+                            <th>Description</th>
+                            <th>Equivalent</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span id="html-tag">\d</span></td>
+                                <td>Any digit</td>
+                                <td><span id="html-tag">[0-9]</span></td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">\D</span></td>
+                                <td>Any non-digit</td>
+                                <td><span id="html-tag">[^0-9]</span></td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">\w</span></td>
+                                <td>Word character</td>
+                                <td><span id="html-tag">[a-zA-Z0-9_]</span></td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">\W</span></td>
+                                <td>Non-word character</td>
+                                <td><span id="html-tag">[^a-zA-Z0-9_]</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h4>Custom Character classes</h4>
+                    <table>
+                        <thead>
+                            <th>Pattern</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>Matches</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span id="html-tag">[abc]</span></td>
+                                <td>Any of the characters a, b, or c</td>
+                                <td><span id="html-tag">[aeiou]</span></td>
+                                <td>Any vowel</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">[^abc]</span></td>
+                                <td>Any character except a, b, or c</td>
+                                <td><span id="html-tag">[^aeiou]</span></td>
+                                <td>Any consonant</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">[a-z]</span></td>
+                                <td>Any lowercase letter</td>
+                                <td><span id="html-tag">[a-z]+</span></td>
+                                <td>Lowercase words</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">[A-Z]</span></td>
+                                <td>Any uppercase letter</td>
+                                <td><span id="html-tag">[A-Z]+</span></td>
+                                <td>Uppercase words</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">[0-9]</span></td>
+                                <td>Any digit</td>
+                                <td><span id="html-tag">[0-9]{4}</span></td>
+                                <td>4-digit number</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">[a-zA-Z]</span></td>
+                                <td>Any letter (upper or lower)</td>
+                                <td><span id="html-tag">[a-zA-Z]+</span></td>
+                                <td>Any word</td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">]a-zA-Z0-9]</span></td>
+                                <td>Any alphanumeric character</td>
+                                <td><span id="html-tag">[a-zA-Z0-9]+</span></td>
+                                <td>Username format</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </section>
 
-            <section class="html-form-example">
-                <h2>HTML Form Regex Validation Example</h2>
-                <form>
-                    <div class="example-section">
-                        <h2>Basic Personal Information</h2>
-                        
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" 
-                                pattern="[A-Za-z]{2,30}" 
-                                title="Please enter 2-30 letters only"
-                                placeholder="John" required>
-                            <div class="description">Must be 2-30 letters only</div>
-                            <div class="pattern-info">Pattern: [A-Za-z]{2,30}</div>
+                <section class="html-form-example">
+                    <h2>HTML Form Regex Validation Example</h2>
+                    <form>
+                        <div class="example-section">
+                            <h2>Basic Personal Information</h2>
+                            
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" 
+                                    pattern="[A-Za-z]{2,30}" 
+                                    title="Please enter 2-30 letters only"
+                                    placeholder="John" required>
+                                <div class="description">Must be 2-30 letters only</div>
+                                <div class="pattern-info">Pattern: [A-Za-z]{2,30}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" 
+                                    pattern="[A-Za-z\s\-']{2,50}" 
+                                    title="Letters, spaces, hyphens, and apostrophes only"
+                                    placeholder="Smith-O'Connor" required>
+                                <div class="description">Allows letters, spaces, hyphens, and apostrophes</div>
+                                <div class="pattern-info">Pattern: [A-Za-z\s\-']{2,50}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" 
+                                    pattern="[a-zA-Z0-9_]{3,20}" 
+                                    title="3-20 characters: letters, numbers, underscores only"
+                                    placeholder="user_123" required>
+                                <div class="description">3-20 characters: letters, numbers, underscores only</div>
+                                <div class="pattern-info">Pattern: [a-zA-Z0-9_]{3,20}</div>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" 
-                                pattern="[A-Za-z\s\-']{2,50}" 
-                                title="Letters, spaces, hyphens, and apostrophes only"
-                                placeholder="Smith-O'Connor" required>
-                            <div class="description">Allows letters, spaces, hyphens, and apostrophes</div>
-                            <div class="pattern-info">Pattern: [A-Za-z\s\-']{2,50}</div>
+                        <div class="example-section">
+                            <h2>Contact Information</h2>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" 
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                                    title="Please enter a valid email address"
+                                    placeholder="user@example.com" required>
+                                <div class="description">Standard email format</div>
+                                <div class="pattern-info">Pattern: [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number (US)</label>
+                                <input type="tel" id="phone" name="phone" 
+                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                                    title="Format: 123-456-7890"
+                                    placeholder="123-456-7890" required>
+                                <div class="description">Format: 123-456-7890</div>
+                                <div class="pattern-info">Pattern: [0-9]{3}-[0-9]{3}-[0-9]{4}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phoneFlexible">Phone Number (Flexible)</label>
+                                <input type="tel" id="phoneFlexible" name="phoneFlexible" 
+                                    pattern="[\+]?[0-9\s\-\(\)]{10,15}" 
+                                    title="10-15 digits, can include +, spaces, dashes, parentheses"
+                                    placeholder="+1 (555) 123-4567">
+                                <div class="description">Flexible format: allows +, spaces, dashes, parentheses</div>
+                                <div class="pattern-info">Pattern: [\+]?[0-9\s\-\(\)]{10,15}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="website">Website URL</label>
+                                <input type="url" id="website" name="website" 
+                                    pattern="https?://[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+                                    title="Must start with http:// or https://"
+                                    placeholder="https://example.com">
+                                <div class="description">Must start with http:// or https://</div>
+                                <div class="pattern-info">Pattern: https?://[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}</div>
+                            </div>
                         </div>
+                </section>
 
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" id="username" name="username" 
-                                pattern="[a-zA-Z0-9_]{3,20}" 
-                                title="3-20 characters: letters, numbers, underscores only"
-                                placeholder="user_123" required>
-                            <div class="description">3-20 characters: letters, numbers, underscores only</div>
-                            <div class="pattern-info">Pattern: [a-zA-Z0-9_]{3,20}</div>
-                        </div>
-                    </div>
+                <section class="regex-tools">
+                    <h2>The Tools That Made Learning Easier</h2>
+                    <p><a href="https://regex101.com/" target="_blank">Online regex testers</a> became my best friend. Being able to type a pattern and immediately see what it matches (or doesn't match) made learning so much faster than trying to debug in my head.</p>
+                    <figure>
+                    <iframe width="700" height="450" src="https://www.youtube.com/embed/sa-TUpSx1JA?si=cit1j7L0Vq4lMeha" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </figure>
+                    <p>Another resource that really helped solidify my understanding was <a href="https://www.youtube.com/watch?v=sa-TUpSx1JA" target="_blank">Corey Schafer's regex tutorial</a> on YouTube. His clear explanations and practical examples made some of the more complex concepts click for me.</p>
+                </section>
 
-                    <div class="example-section">
-                        <h2>Contact Information</h2>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" 
-                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
-                                title="Please enter a valid email address"
-                                placeholder="user@example.com" required>
-                            <div class="description">Standard email format</div>
-                            <div class="pattern-info">Pattern: [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number (US)</label>
-                            <input type="tel" id="phone" name="phone" 
-                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-                                title="Format: 123-456-7890"
-                                placeholder="123-456-7890" required>
-                            <div class="description">Format: 123-456-7890</div>
-                            <div class="pattern-info">Pattern: [0-9]{3}-[0-9]{3}-[0-9]{4}</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phoneFlexible">Phone Number (Flexible)</label>
-                            <input type="tel" id="phoneFlexible" name="phoneFlexible" 
-                                pattern="[\+]?[0-9\s\-\(\)]{10,15}" 
-                                title="10-15 digits, can include +, spaces, dashes, parentheses"
-                                placeholder="+1 (555) 123-4567">
-                            <div class="description">Flexible format: allows +, spaces, dashes, parentheses</div>
-                            <div class="pattern-info">Pattern: [\+]?[0-9\s\-\(\)]{10,15}</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="website">Website URL</label>
-                            <input type="url" id="website" name="website" 
-                                pattern="https?://[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
-                                title="Must start with http:// or https://"
-                                placeholder="https://example.com">
-                            <div class="description">Must start with http:// or https://</div>
-                            <div class="pattern-info">Pattern: https?://[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}</div>
-                        </div>
-                    </div>
-            </section>
-
-            <section class="regex-tools">
-                <h2>The Tools That Made Learning Easier</h2>
-                <p><a href="https://regex101.com/" target="_blank">Online regex testers</a> became my best friend. Being able to type a pattern and immediately see what it matches (or doesn't match) made learning so much faster than trying to debug in my head.</p>
-                <figure>
-                <iframe width="700" height="450" src="https://www.youtube.com/embed/sa-TUpSx1JA?si=cit1j7L0Vq4lMeha" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </figure>
-                <p>Another resource that really helped solidify my understanding was <a href="https://www.youtube.com/watch?v=sa-TUpSx1JA" target="_blank">Corey Schafer's regex tutorial</a> on YouTube. His clear explanations and practical examples made some of the more complex concepts click for me.</p>
-            </section>
-
-            <section class="tomorrow-goals">
-                <h2>Tomorrow's Goals</h2>
-                <ul class="goals">
-                    <li>Write up what I've learned for Git and GitHub</li>
-                    <li>Refresh on CSS</li>
-                    <li>Write up learning points on CSS</li>
-                    <li>Start thinking about how to style this blog (real excited about this one!)</li>
-                </ul>
-                <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who someone found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
-            </section>
+                <section class="tomorrow-goals">
+                    <h2>Tomorrow's Goals</h2>
+                    <ul class="goals">
+                        <li>Write up what I've learned for Git and GitHub</li>
+                        <li>Refresh on CSS</li>
+                        <li>Write up learning points on CSS</li>
+                        <li>Start thinking about how to style this blog (real excited about this one!)</li>
+                    </ul>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who someone found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                </section>
+            </article>
     </main>
 </body>
 </html>
