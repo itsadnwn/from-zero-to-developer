@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Day 4: HTML Forms | From Zero to Developer, One Line at a Time</title>
 </head>
 
@@ -25,7 +30,7 @@
 
             <article>
                 <section class="day-4-intro">
-                   <p>I've been diving into HTML forms again - both as a refresher for this blog and also to gain a deeper understanding before I move forward. And honestly, there's so much more to them than I intially thought. What started as a simple way to collect user input has turned into this fascinating study of user experience, accessibility, and web standards.</p>
+                   <p>I've been diving into HTML forms again - both as a refresher for this blog and also to gain a deeper understanding before I move forward. And honestly, there's so much more to them than I initially thought. What started as a simple way to collect user input has turned into this fascinating study of user experience, accessibility, and web standards.</p>
                    <figure>
                    <iframe width="700" height="450" src="https://www.youtube.com/embed/fNcJuPIZ2WE?si=hE92HCvXpahMqanS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                    <figcaption>This was the <a href="https://youtu.be/fNcJuPIZ2WE" target="_blank">video</a> that helped me understand HTML forms sooo much better.</figcaption>
@@ -40,7 +45,7 @@
                             <li><span id="html-tag">method</span>: Determines how the data gets there</li>
                         </ul>
                     <div class="html-example">
-                        <code class="html-tag-example">
+                        <code class="html-example-text">
                             &lt;form action="submit.html" method="GET"&gt;<br>
                             &nbsp;&nbsp;<span id="comment-tag">&lt;!-- All form information goes here --&gt;</span><br>
                             &lt;/form&gt;
@@ -55,57 +60,57 @@
 
                 <section id="input-types">
                     <h2>The Input Types That Changed Everything</h2>
-                    <p>When I used to fill in forms online, I used to think that they were all just text field boxes. But now that I've learned about HTML forms, I've come to realized that it's more than that.</p>
+                    <p>When I used to fill in forms online, I used to think that they were all just text field boxes. But now that I've learned about HTML forms, I've come to realize that it's more than that.</p>
                         <div class="html-example">
                             <div>
                             <label for="email">Email:</label>
                             <input type="email" name="email" placeholder="your@gmail.com"><br>
                             <code class="html-example-tag">
                                 &lt;input type="email" name="email" placeholder="your@gmail.com"&gt;</code>
-                                <p>The email input automatically valids email format, which would require the person to enter a valid email address before the form can be submitted.</p>
+                                <p>The email input automatically validates email format, which would require the person to enter a valid email address before the form can be submitted.</p>
                             </div>
                             <div>
                             <label for="password">Password:</label>
                             <input type="password" name="password"><br>
-                            <code class="html-example-tag">
+                            <code class="html-example-text">
                                 &lt;input type="password" name="password"&gt;</code>
                                 <p>This is a password input, which hides the characters you type in the field box.</p>
                             </div>
                             <div>
                             <label for="phone">Phone:</label>
                             <input type="tel" name="phone"><br>
-                            <code class="html-example-tag">
+                            <code class="html-example-text">
                                 &lt;input type="tel" name="phone"&gt;</code>
                                 <p>The tel input requests for you to enter your phone number, and it also brings up the number and automatically on mobile devices.</p>
                             </div>
                         </div>
                         <p>These small details make such a huge difference in the user experience, and I'm so glad that I know about them now!</p>
-                        <p>There are also other input types that feel like Christmas mornings. Date pickers, color selectors, rang sliders - all built right into the browser!</p>
+                        <p>There are also other input types that feel like Christmas mornings. Date pickers, color selectors, range sliders - all built right into the browser!</p>
                             <div class="html-example">
                                     <div>
                                     <label for="birthdate">Date of Birth:</label>
                                     <input type="date" name="birthdate"><br>
-                                    <code class="html-tag-example">&lt;input type="date" name="birthdate"&gt;</code><br>
+                                    <code class="html-example-text">&lt;input type="date" name="birthdate"&gt;</code><br>
                                     </div>
                                     <div>>
                                     <label for="appointment-time">Time of Appointment:</label><br>
                                     <input type="time" name="appointment-time"><br>
-                                    <code class="html-tag-example">&lt;input type="time" name="appointment-time"&gt;</code><br>
+                                    <code class="html-example-text">&lt;input type="time" name="appointment-time"&gt;</code><br>
                                     </div>
                                     <div>
                                     <label for="age">Age:</label>
                                     <input type="number" name="age" min="1" max="120"><br>
-                                    <code class="html-tag-example">&lt;input type="number" name="age" min="1" max="120"&gt;</code><br>
+                                    <code class="html-example-text">&lt;input type="number" name="age" min="1" max="120"&gt;</code><br>
                                     </div>
                                     <div>
                                     <label for="rating">Rating:</label>
                                     <input type="range" name="rating" min="1" max="5"><br>
-                                    <code class="html-tag-example">&lt;input type="range" name="rating" min="1" max="5"&gt;</code><br>
+                                    <code class="html-example-text">&lt;input type="range" name="rating" min="1" max="5"&gt;</code><br>
                                     </div>
                                     <div>>
                                     <label for="theme">Theme:</label>
                                     <input type="color" name="theme"><br>
-                                    <code class="html-tag-example">&lt;input type="color" name"theme"&gt;</code>
+                                    <code class="html-example-text">&lt;input type="color" name="theme"&gt;</code>
                                     </div>
                             </div>
                 </section>
@@ -118,7 +123,7 @@
                         <li>Write up HTML quote for Day 5's post</li>
                         <li>Read up on some resources found on GitHub (are you interested to see them, too?)</li>
                     </ul>
-                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who someone found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who somehow found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
                 </section>
             </article>
     </main>

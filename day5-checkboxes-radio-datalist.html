@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Day 5: Checklists, Radio Buttons, and Datalists | From Zero to Developer, One Line at a Time</title>
 </head>
 
@@ -47,7 +52,7 @@
                             <input type="checkbox" id="java" name="languages" value="java">
                             <label for="java">Java</label>
                         </fieldset>
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             &lt;fieldset&gt;<br>
                             &nbsp;&nbsp;&lt;legend&gt;What programming languages do you know?&lt;/legend&gt;<br>
                             &nbsp;&nbsp;&lt;input type="checkbox" id="html" name="languages" value="html"&gt;<br>
@@ -78,7 +83,7 @@
                             <input type="radio" id="advanced" name="experience" value="advanced">
                             <label for="advanced">Advanced (5+ years)</label>
                         </fieldset>
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             &lt;fieldset&gt;<br>
                             &nbsp;&nbsp;&lt;legend&gt;What's your experience level?&lt;/legend&gt;<br>
                             &nbsp;&nbsp;&lt;input type="radio" id="beginner" name="experience" value="beginner"&gt;<br>
@@ -128,7 +133,7 @@
                     <p>One last thing I learned is that you can make a checkbox or radio button (or any form fields) required by adding the <span id="html-tag">required</span> attribute. This prevents form submission until the user selects at least one option.</p>
                     <p>For example:</p>
                     <div class="html-example">
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                         &lt;input type="radio" id="credit" name="payment" value="credit" required&gt;
                         </code>
                     </div>
@@ -148,7 +153,7 @@
                             <option value="phoenix">Phoenix</option>
                         </datalist>
                         <br>
-                    <code class="html-tag-example">
+                    <code class="html-example-text">
                         &lt;label for="city"&gt;City:&lt;/label&gt;<br>
                         &lt;input type="text" id="city" name="city" list="cities"&gt;<br>
                         &lt;datalist id="cities"&gt;<br>
@@ -167,7 +172,7 @@
                     <h3>Proper Labeling</h3>
                     <p>Every checkbox, radio button, and input needs proper labeling:</p>
                     <div class="html-example">
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             &lt;input type="checkbox" id="agree" value="yes"&gt;<br>
                             &lt;label for="agree"&gt;I agree to the terms and conditions&lt;/label&gt;
                         </code>
@@ -175,7 +180,7 @@
                     <h3>Fieldset and Legend</h3>
                     <p>For groups of related controls, fieldsets and legends are crucial for screen readers.</p>
                     <div class="html-example">
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             &lt;fieldset&gt;<br>
                             &nbsp;&nbsp;&lt;legend&gt;Delivery Preferences&lt;/legend&gt;<br>
                             &nbsp;&nbsp;&lt;input type="radio" id="standard" name="delivery" value="standard"&gt;<br>
@@ -188,7 +193,7 @@
                     <h3>Never Forget The <span id="html-tag-h3">name</span> Attribute</h3>
                     <p>Radio buttons without the same <span id="html-tag">name</span> attribute don't work as a group.</p>
                     <div class="html-example">
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             <span id="comment-tag">&lt;!-- This is wrong --&gt;</span><br>
                             &lt;input type="radio" id="yes" value="yes"&gt;<br>
                             &lt;input type="radio" id="no" value="no"&gt;<br>
@@ -256,7 +261,7 @@
                         <li>Write up learning points and post on Form Validation Patterns</li>
                         <li>Figure out how to get everything on GitHub</li>
                     </ul>
-                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who someone found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who somehow found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
                 </section>
             </article>
     </main>

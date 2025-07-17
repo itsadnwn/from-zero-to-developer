@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Day 3: HTML Tables | From Zero to Developer, One Line at a Time</title>
 </head>
 
@@ -34,7 +39,7 @@
                     <h2>The Foundation Brick</h2>
                     <p>Just like every Lego build starts with the base plate, every table starts with <span id="html-tag">&lt;table&gt;</span>.</p>
                     <div class="html-example">
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             &lt;table&gt;<br>
                             &nbsp;&nbsp;<span id="comment-tag">&lt;!-- Everything builds on top of this --&gt;</span><br>
                             &lt;/table&gt;
@@ -46,7 +51,7 @@
                     <h2>Stacking The Rows</h2>
                     <p>Then you start stacking your rows with <span id="html-tag">&lt;tr&gt;</span> - think of these as those long flat Lego pieces that run horizontally across your build:</p>
                     <div class="html-example">
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             &lt;tr&gt;<br>
                             &nbsp;&nbsp;<span id="comment-tag">&lt;!-- This is one layer of your structure --&gt;</span><br>
                             &lt;/tr&gt;
@@ -58,7 +63,7 @@
                     <h2>The Individual Blocks</h2>
                     <p>Inside each row, you snap in your individual pieces - <span id="html-tag">&lt;td&gt;</span> for regular data blocks and <span id="html-tag">&lt;th&gt;</span> for those special header blocks (you know, like the different colored pieces that stand out):</p>
                     <div class="html-example">
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             &lt;th&gt;Special Header Block&lt;/th&gt;<br>
                             &lt;td&gt;Regular Data Block&lt;/td&gt;
                         </code>
@@ -67,14 +72,14 @@
 
                 <section class="building-in-sections">
                     <h2>Building in Sections (The Game Changer!)</h2>
-                    <p>Here's where it gets really cool - just like you might build a Lego castle with distinct sections (foundation, walls ,towers), tables have their own sections:</p>
+                    <p>Here's where it gets really cool - just like you might build a Lego castle with distinct sections (foundation, walls, towers), tables have their own sections:</p>
                     <ul>
                         <li><span id="html-tag">&lt;thead&gt;</span> - This is like building the top most section with all your special header pieces</li>
                         <li><span id="html-tag">&lt;tbody&gt;</span> - The main body where most of your blocks go</li>
                         <li><span id="html-tag">&lt;tfoot&gt;</span> - The bottom section for totals or summary pieces</li>
                     </ul>
                     <div class="html-example">
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             &lt;thead&gt;<br>
                             &nbsp;&nbsp;&lt;tr&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Header 1&lt;/th&gt;<br>
@@ -101,13 +106,13 @@
                     <h2>My "Aha!" Moment</h2>
                     <p>When I built my first properly structured table, it was like completing a Lego set for the first time - everything had its place and purpose:</p>
                     <div id="html-example">
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             &lt;table&gt;<br>
                             <!-- thead -->
                             &nbsp;&nbsp;&lt;thead&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Game&lt;/th&gt;<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Platform&gt;&lt;/th&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Platform&lt;/th&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Year&lt;/th&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
                             &nbsp;&nbsp;&lt;/thead&gt;<br>
@@ -115,9 +120,10 @@
                             &nbsp;&nbsp;&lt;tbody&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;The Legend of Zelda: Echoes of Wisdom&lt;/td&gt;<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Swtich&lt;/td&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Switch&lt;/td&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;2024&lt;/td&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Split Fiction&lt;/td&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;PC&lt;/td&gt;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;2025&lt;/td&gt;<br>
@@ -154,7 +160,7 @@
                     <h2>The Special Pieces: Rowspan and Colspan</h2>
                     <p>Just like Lego sets have those special pieces that span across multiple connection points, HTML tables have <span id="html-tag">&lt;rowspan&gt;</span> and <span id="html-tag">&lt;colspan&gt;</span>. These let you make cells stretch across multiple rows or columns:</p>
                     <div class="html-example">
-                        <code class="html-example-tag">
+                        <code class="html-example-text">
                             &lt;td colspan="2"&gt;This cell spans 2 columns&lt;/td&gt;<br>
                             &lt;td rowspan="3"&gt;This cell spans 3 rows&lt;/td&gt;
                         </code>
@@ -165,8 +171,8 @@
                 <section class="what-i-realize">
                     <h2>What I Realized</h2>
                     <p>The Lego analogy really helped me understand that each HTML table element is like a specific type of block with its own purpose. You can't just randomly throw them together - there's a system. Just like you wouldn't use a tiny 1x1 block where you need a long base piece, you wouldn't use <span id="html-tag">&lt;td&gt;</span> where you need <span id="html-tag">&lt;th&gt;</span>.</p>
-                    <p>And just like Legos give you that satisfiying rigid structure that holds everything together, HTML tables give your data that same kind of reliable framework. Whether it's the skeletal system holding your body up or Lego blocks holding up your creation, it's all about having the right structure in the right place.</p>
-                    <p>The best part? Once I got the hang of it, building tables becomes as intuitive as snapping Lego pieces together!</p>
+                    <p>And just like Legos give you that satisfying rigid structure that holds everything together, HTML tables give your data that same kind of reliable framework. Whether it's the skeletal system holding your body up or Lego blocks holding up your creation, it's all about having the right structure in the right place.</p>
+                    <p>The best part? Once I got the hang of it, building tables became as intuitive as snapping Lego pieces together!</p>
                 </section>
 
                 <section id="tomorrow-goals">
@@ -177,7 +183,7 @@
                         <li>Think of how to get traffic to this GitHub blog (Instagram, maybe?)</li>
                         <li>Keep building on this, even if no one reads it</li>
                     </ul>
-                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who someone found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who somehow found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
                 </section>
             </article>
         </main>
