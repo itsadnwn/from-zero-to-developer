@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Day 8: CSS Fundamentals | From Zero to Developer, One Line at a Time</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-back">
+            <a href="day7-git-github.html">← Day 7: Git & GitHub</a>
+        </nav>
+        <nav class="nav-next">
+            <a href="day9-css-color-systems.html">Day 8: Color Systems →</a>
+        </nav>
+    </header>
+
+    <main>
+            <section class="day8-header">
+                <h1>My First Steps with CSS: What I Learned about Selectors, Specificity, and Properties<h1>
+                <p><em><time datetime="2025-07-18">18 July, 2025</time></em></p>
+            </section>
+
+            <article>
+                <section class="day8-intro">
+                    <p>When I first heard about CSS, I thought it was just about making websites look pretty. Change some colors here, adjust some fonts there, and boom - you're a web designer, right? Well... I was wrong. After diving in and trying it out in practice, I quickly realized there's way more to it than I expected.</p>
+                    <p>I'm still pretty new to all these, and I haven't really tried to build and beautify anything yet. But I just wanted to share some of the things I've learned so far.</p>
+                </section>
+
+                <section class="css-selectors">
+                    <h2>CSS Selectors: How Do I Even Target Things?</h2>
+                    <p>When I started, I was a little overwhelmed by all the different ways to select elements in CSS. Like there are <em>SO</em> many options, and I still had no idea when to use what.</p>
+                    <p>The basics were okay. I could handle <span id="html-tag">p</span> for paragraphs, <span id="html-tag">h1</span> for headings. Classes with <span id="html-tag">.my-class</span> made sense, and IDs with <span id="html-tag">#my-id</span> are supposed to be unique.</p>
+                    <p>But then I started seeing things like <span id="html-tag">.container &gt; .item:first-child</span> and my brain just went out the window. Until it was explained to me, then I realized it's not that scary.</p>
+                    <p>The <span id="html-tag">&gt;</span> means "direct child of" - so <span id="html-tag">.container &gt; .item</span> means "find items that are direct children of containers, not grandchildren or great-grandchildren". And <span id="html-tag">:first-child</span> is just a way to say "the first one in the group.</p>
+                    <p>The colon ones (<span id="html-tag">:first-child</span>, <span id="html-tag">:hover</span>) are called pseudo-selectors, and they're basically ways to target elements in special situations. Think of them as adding extra conditions to your regular selectors.</p>
+                    <p>Like <span id="html-tag">:hover</span> - that's for when someone puts their mouse over something. So <span id="html-tag">button:hover</span> means "style the button, but only when someone's hovering over it".</p>
+                    <p>And <span id="html-tag">:first-child</span> is for targeting the first item in a group. If you have a list of 5 items, <span id="html-tag">li:first-child</span> will only style the very first item in that list.</p>
+                    <p>One thing that blew my mind was attribute selectors. Instead of adding classes to every single input field, I could just write <span id="html-tag">input[type="email"]</span> to target all email inputs! It feels like cheating, but in a good way.</p>
+                </section>
+
+                <section class="css-specificity">
+                    <h2>CSS Specificity</h2>
+                    <p>CSS has this whole system for deciding which styles "win" when there are conflicts. It's called specificity, and it's basically a scoring system. More specific selectors beat less specific ones.</p>
+                    <p>Here's what I learned (and I'm definitely oversimplifying):</p>
+                    <ul>
+                        <li>Inline styles (like <span id="html-tag">style="color: red;"</span> beat everything</li>
+                        <li>IDs beat classes</li>
+                        <li>Classes beat element tags</li>
+                        <li>When scores are tied, the last one in the CSS file wins</li>
+                    </ul>
+                </section>
+
+                <section class="css-properties">
+                    <h2>CSS Properties</h2>
+                    <p>The sheer number of properties is honestly overwhelming. I mean, just take a look at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank">this</a>! Every time I think I've learned the main ones, I discover a whole new category. Layout properties, typography properties, animation properties, grid properties, flexbox properties (where I struggled) - it never ends.</p>
+                    <p>But here's what I've learned: you don't need to memorize them all. You just need to know the basics, and then look up the rest when you need them.</p>
+                </section>
+
+                <section class="mindset-towards=css">
+                    <h2>My Current Mindset Towards CSS</h2>
+                    <p>These are the things that I will be reminding myself of as I continue to refresh on and learn about CSS:</p>
+                    <ol>
+                        <li><strong>It's okay to be confused.</strong> CSS can be counter-intuitive sometimes. I just need to be patient and gentle with myself, I'm still learning.</li>
+                        <li><strong>Start simple.</strong> Don't try to build complex layouts right away. Master the basics first.</li>
+                        <li><strong>The browser dev tools are my friends.</strong> I can inspect elements and see exactly what styles are being applied. This was a huge game-changer by the way.</li>
+                        <li><strong>Practice, practice, practice.</strong> Reading about CSS is one thing, but actually building things is how it really clicks.</li>
+                        <li><strong>Don't memorize everything.</strong> Learn the fundamentals first, then look up the rest as needed.</li>
+                    </ol>
+                </section>
+
+                <section class="where-im-learning">
+                    <h2>Where I'm Learning</h2>
+                    <p>I've been working through <a href="https://www.youtube.com/playlist?list=PLblA84xge2_xNtaFnZhefjFbnDrpySKD3" target="_blank">Colt Steele's Web Development Course</a> on YouTube, and it's been amazing for actually understanding these concepts through hands-on projects. He explains things in a way that makes sense to beginners.</p>
+                    <p>When I need to look up specific properties or understand how something works, the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank">MDN CSS Reference</a> has been incredibly helpful. It's super detailed, but it's accurate and comprehensive.</p>
+                </section>
+
+                <section class="tomorrow-goals">
+                    <h2>Tomorrow's Goals</h2>
+                    <ul class="goals">
+                        <li>Write and commit post on CSS Color Sytems</li>
+                        <li>Write and commit post on CSS Box Model and Display</li>
+                    </ul>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who somehow found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                </section>
+            </article>
+    </main>
+</body>
+</html>

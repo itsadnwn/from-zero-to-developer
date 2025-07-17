@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Day 9: CSS Color Systems | From Zero to Developer, One Line at a Time</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-back">
+            <a href="day8-css-fundamentals.html">← Day 8: CSS Fundamentals</a>
+        </nav>
+        <nav class="nav-next">
+            <a href="day10-css-box-model.html">Day 10: CSS Box Model and Display →</a>
+        </nav>
+    </header>
+
+    <main>
+            <section class="day9-header">
+                <h1>CSS Color Systems: What I've Learned So Far<h1>
+                <p><em><time datetime="2025-07-19">19 July, 2025</time></em></p>
+            </section>
+
+            <article>
+                <section class="day9-intro">
+                    <p>I've been refreshing my knowledge on CSS lately to post for this learning journey blog, and I realize that one thing that kept tripping me up was all the different ways to specify colors. Coming from a design background where I mostly picked colors from palettes, the technical side of CSS colors felt overwhelming. But after watching tutorials and playing with them for awhile, I'm starting to see how each system has its own strengths.</p>
+                    <p>Here's what I've figured out about the main color systems in CSS, along with some things I wish I'd known earlier.</p>
+                </section>
+
+                <section class="css-rgb">
+                    <h2>RGB: The Building Blocks</h2>
+                    <p>RGB was the first color system I really understood. It's basically mixing red, green, and blue light, with each value going from 0 to 255. Think of it like having 3 dimmer switches.</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .myelement {<br>
+                            &nbsp;&nbsp;color: rgb(255, 0, 0); <span id="comment-tag">/* pure red */</span><br>
+                            &nbsp;&nbsp;color: rgb(0, 255, 0); <span id="comment-tag">/* pure green */</span><br>
+                            &nbsp;&nbsp;color: (0, 0, 255); <span id="comment-tag">/* pure blue */</span><br>
+                            &nbsp;&nbsp; color: rgb(128, 128, 128); <span id="comment-tag">/* gray */</span><br>
+                        }<br>
+                        </code>
+                    </div>
+                    <p>What I like about RGB is that it's pretty intuitive once you get the hang of it. Higher numbers = more of that color. But to be frank, we all use some color picker now and just copy paste the values, isn't it?</p>
+                </section>
+
+                <section class="css-hexadecimal">
+                    <h2>Hexadecimal: The Shorthand</h2>
+                    <p>Hex codes are just RGB in disguise, but written in hexadecimal (base 16). I used to be intimidated by them, but they're actually quite logical.</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .my-element {<br>
+                            &nbsp;&nbsp;color: #ff0000; <span id="comment-tag">/* same as rgb(255, 0, 0) */</span><br>
+                            &nbsp;&nbsp;color: #00ff00; <span id="comment-tag">/* same as rgb(0, 255, 0) */</span><br>
+                            &nbsp;&nbsp;color: #0000ff; <span id="comment-tag">/* same as rgb(0, 0, 255) */</span><br>
+                            &nbsp;&nbsp;color: #808080; <span id="comment-tag">/* same as rgb(128, 128, 128) */</span><br>
+                            }<br>
+                        </code>
+                    </div>
+                    <p>I usually reach for hex codes because it's what I'm used to when I was a designer, but also because they're compact (which means the code would look neater)</p>
+                </section>
+
+                <section class="rgb-hsl">
+                    <h2>HSL: The Intuitive One</h2>
+                    <p>HSL (Hue, Saturation, Lightness) was a game-changer for me. It matches how I actually think about colors.</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .myelement {<br>
+                            &nbsp;&nbsp;color: hsl(0, 100%, 50%); <span id="html-tag">/* pure red */</span><br>
+                            &nbsp;&nbsp;color: hsl(120, 100%, 50%); <span id="html-tag">/* pure green */</span><br>
+                            &nbsp;&nbsp;color: hsl(240, 100%, 50%); <span id="html-tag">/* pure blue */</span><br>
+                            &nbsp;&nbsp;color: hsl(0, 0%, 50%); <span id="html-tag">/* gray */</span><br>
+                            }<br>
+                        </code>
+                    </div>
+                    <figure>
+                        <img src="images/hsl-color-wheel.png" alt="color wheel hsl"/>
+                    </figure>
+                    <ul>
+                        <li><strong>Hue</strong> is the color itself (0-360 degrees around a color wheel)</li>
+                        <li><strong>Saturation</strong> is how vibrant it is (0%=gray, 100%=full color)</li>
+                        <li><strong>Lightness</strong> is how bright it is (0%=black, 100%=white)</li>
+                    </ul>
+                </section>
+
+                <section class="adding-transparency">
+                    <h2>Adding Transparency: RGBA and HSLA</h2>
+                    <p>Both RGB and HSL have alpha versions that let you control transparency. The alpha value goes from 0 (completely transparent) to 1 (completely opaque).</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .transparent-elements {<br>
+                            &nbsp;&nbsp;background: rgba (255, 0, 0, 0.5); <span id="comment-tag">/* 50% transparent red */</span><br>
+                            &nbsp;&nbsp;background: hsla(0, 100%, 50%, 0.3);<br>
+                            }<br>
+                        </code>
+                    </div>
+                </section>
+
+                <section class="css-gradient">
+                    <h2>Gradients: Where It Gets Fun</h2>
+                    <p>Gradients were intimidating at first, but they're actually just transitions between colors. The most common types are linear and radial.</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .gradient-examples {<br>
+                            &nbsp;&nbsp;<span id="comment-tag">/* simple linear gradient</span><br>
+                            &nbsp;&nbsp;background: linear-gradient(to right, #ff0000, #0000ff);<br>
+                            <br>
+                            &nbsp;&nbsp;<span id="comment-tag">/* angled gradient */</span><br>
+                            &nbsp;&nbsp;background: linear-gradient(45deg, #ff0000, #0000ff);<br>
+                            <br>
+                            &nbsp;&nbsp;<span id="comment-tag">/* multiple colors */</span><br>
+                            &nbsp;&nbsp;background: linear-gradient(to bottom, #ff0000, #00ff00, #0000ff);<br>
+                            <br>
+                            &nbsp;&nbsp;<span id="comment-tag">/* radial gradient */</span><br>
+                            &nbsp;&nbsp;background: radial-gradient(circle, #ff0000, #0000ff);<br>
+                            }<br>
+                        </code>
+                    </div>
+                </section>
+
+                <section class="tomorrow-goals"">
+                    <h2>Tomorrow's Goals</h2>
+                    <ul class="goals">
+                        <li>Write up post on CSS Box Model and Display</li>
+                        <li>Dive into CSS Typography</li>
+                    </ul>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who somehow found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                </section>
+            </article>
+    </main>
+</body>
+</html>
