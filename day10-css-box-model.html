@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Day 10: CSS Box Model and Display | From Zero to Developer, One Line at a Time</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-back">
+            <a href="day9-css-color-systems.html">← Day 9: CSS Color Systems</a>
+        </nav>
+        <nav class="nav-next">
+            <a href="day11-css-typography.html">Day 11: CSS Typography and Google Fonts →</a>
+        </nav>
+    </header>
+
+    <main>
+            <section class="day10-header">
+                <h1>CSS Box Model and Display: What I've Learned So Far<h1>
+                <p><em><time datetime="2025-07-19">19 July, 2025</time></em></p>
+            </section>
+
+            <article>
+                <section class="day10-intro">
+                    <p>The box model was one of those concepts that made my brain hurt at first. But after wrestling with it for awhile, some things finally clicked. I wanted to share what I've learned so far - not as an expert (I'm far from it), but as someone who's still figuring it out alongside you.</p>
+                </section>
+
+                <section class="the-big-picture">
+                    <h2>The Big Picture: Everything is a Box</h2>
+                    <p>One thing that really helped me understand CSS was realizing that every single element on a webpage is essentially a rectangular box. Even circles and fancy shapes - they're all living inside invisible rectangles. One I accepted this, the box model started making more sense.</p>
+                    <figure>
+                        <img src="images/box-model.jpeg" width="450" alt="notes on box model"/>
+                    </figure>
+                </section>
+
+                <section class="longhand-shorthand">
+                    <h2>Longhand vs Shorthand: Finding My Balance</h2>
+                    <p>When I first learned CSS, I was intimidated by shorthand properties. So I stuck with longhand because it felt explicit and safe:</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .my-box {<br>
+                            &nbsp;&nbsp;margin-top: 10px;<br>
+                            &nbsp;&nbsp;margin-right: 20px;<br>
+                            &nbsp;&nbsp;margin-bottom: 15px;<br>
+                            &nbsp;&nbsp;margin-left: 5px;<br>
+                            <br>
+                            &nbsp;&nbsp;padding-top: 12px;<br>
+                            &nbsp;&nbsp;padding-right: 16px;<br>
+                            &nbsp;&nbsp;padding-bottom: 12px;<br>
+                            &nbsp;&nbsp;padding-left: 16px;<br>
+                             }
+                        </code>
+                    </div>
+                    <p>Now that I'm more comfortable, I realized shorthand wasn't as scary as I thought. Here's what I learned about the different patterns:</p>
+                    <ul>
+                        <li><strong>Four values:</strong> <span id="html-tag">margin: 10px 20px 15px 5px</span> (top, right, bottom, left - clockwise)</li>
+                        <li><strong>Three values:</strong> <span id="html-tag">margin: 10px 20px 15px</span> (top, horizontal, bottom)</li>
+                        <li><strong>Two values:</strong> <span id="html-tag">margin: 10px 20px</span> (vertical, horizontal)</li>
+                        <li><strong>One value:</strong> <span id="html-tag">margin: 10px</span> (all sides)</li>
+                    </ul>
+                </section>
+                
+                <section class="the-box">
+                    <h2>The Box</h2>
+                    <figure>
+                        <img src="images/devtool-content-box.webp" width="550" alt="devtool content box">
+                    </figure>
+                    <h3>Content Box: The Heart of It All</h3>
+                    <p>The content box (img reference: in blue) is where your actual content lives - text, images, whatever. By default, when you set <span id="html-tag">width</span> and <span id="html-tag">height</span>, you're setting the size of this content box. Everything else (padding, border, margin) gets added on top.</p>
+                    <h3>Padding: The Breathing Room Inside</h3>
+                    <p>Padding was actually the easiest part for me to understand. It's like the cushioning inside a box - it pushes the content away from the edges. One thing to remember though: padding affects the total size of an element!</p>
+                    <h3>Margin: The Space Between Things</h3>
+                    <p>Margin create space <em>around</em> elements, and they have this weird thing called "margin collapse" that I'm still wrapping my head around. If you have 2 elements stacked vertically with margins, they don't add up - they collapse into the larger margin. Does that make sense? Let me give an example!</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .box-one {<br>
+                                &nbsp;&nbsp;margin-bottom: 30px;<br>
+                                }<br>
+                            <br>
+                            .box-two {<br>
+                                &nbsp;&nbsp;margin-top: 20px;<br>
+                                }
+                        </code>
+                    </div>
+                    <p>The space between these boxes isn't 50px - it's just 30px. Horizontal margins don't collapse though, only vertical ones!</p>
+                </section>
+
+                <section class="box-sizing">
+                    <h2>Box-Sizing: The Game Changer</h2>
+                    <p>This property literally changed how I approach CSS. There are actually 3 different values for <span id="html-tag">box-sizing</span>, and understanding them made a huge difference in how I write CSS.</p>
+                    <h3>content-box (Default)</h3>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .content-box {<br>
+                            &nbsp;&nbsp;box-sizing: content-box;<br>
+                            &nbsp;&nbsp;width: 300px;<br>
+                            &nbsp;&nbsp;padding: 20px;<br>
+                            &nbsp;&nbsp;border: 5px solid blue;<br>
+                            &nbsp;&nbsp;<span id="comment-tag">/* Total width: 350px (300 + 20 + 20 + 5 + 5) */</span><br>
+                            }
+                        </code>
+                    </div>
+                    <p>This is what I started with, and it's the default behaviour. The width and height you set only apply to the content area. Everything else gets added don top.</p>
+
+                    <h3>border-box (My New Best Friend)</h3>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .border-box {<br>
+                            &nbsp;&nbsp;box-sizing: border-box;<br>
+                            &nbsp;&nbsp;width: 300px;<br>
+                            &nbsp;&nbsp;padding: 20px;<br>
+                            &nbsp;&nbsp;border: 5px solid blue;<br>
+                            &nbsp;&nbsp;<span id="comment tag">/* Total width: exactly 300px! */<br>
+                            &nbsp;&nbsp;/* Content area becomes: 250px (300 - 20 - 20 - 5 - 5) */</span><br>
+                            }
+                        </code>
+                    </div>
+                    <p>Once I discovered this, my life got so much easier. Now when I say something is 300px wide, it's actually 300px wide, including padding and border. The content area shrinks to accommodate them.</p>
+
+                    <h3>padding-box (The Rarely Used One)</h3>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .padding-box {<br>
+                            &nbsp;&nbsp;box-sizing: padding-box;<br>
+                            &nbsp;&nbsp;width: 300px;<br>
+                            &nbsp;&nbsp;padding: 20px;<br>
+                            &nbsp;&nbsp;border: 5px solid blue;<br>
+                            &nbsp;&nbsp;<span id="comment-tag">/* Total width: 310px (300 + 5 + 5 for borders) */<br>
+                            &nbsp;&nbsp;/* Width includes content + padding, but not border */</span><br>
+                            }
+                        </code>
+                    </div>
+                    <p>I've barely used this one. It includes padding in the width calculation but not the border. It's kind of a middle ground between the other two, but I haven't found a practical use case for it yet.</p>
+                </section>
+
+                <section class="display-properties">
+                    <h2>Display Properties: How Elements Behave</h2>
+                    <p>This is where things get really interesting. The <span id="html-tag">display</span> property basically tells an element how to behave in the layout.</p>
+                    <h3>Block Elements</h3>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .block-element {<br>
+                            &nbsp;&nbsp;display: block;<br>
+                            &nbsp;&nbsp;<span id="comment-tag">/* Takes full width, forces line breaks */</span><br>
+                            }
+                        </code>
+                    </div>
+                    <p>Block elements are like bullies - they take up the entire width and push everything else to new lines. Divs, headings, and paragraphs are block by default.</p>
+                    <h3>Inline Elements</h3>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .inline-element {<br>
+                            &nbsp;&nbsp;display: inline;<br>
+                            &nbsp;&nbsp;<span id="comment-tag">/* Flows with text, can't set width/height */</span><br>
+                            }
+                        </code>
+                    </div>
+                    <p>Inline elements play nice with text. They flow along with it, but you can't set their width or height. Spans and links are inline by default.</p>
+                    <h3>Inline-block: The Best of Both Worlds</h3>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .inline-block-element {<br>
+                            &nbsp;&nbsp;display: inline-block;<br>
+                            &nbsp;&nbsp;<span id="comment-tag">/* Flows with text BUT can have width/height */</span><br>
+                            }
+                        </code>
+                    </div>
+                    <p>This is my go-to for things like buttons or navigation items. They line up horizontally but still respect width and height.</p>
+                </section>
+
+                <section class="css-reset">
+                    <h2>CSS Reset: Starting with a Clean Slate</h2>
+                    <p>One thing that frustrated me early on was how different browsers have different styles. Here's a basic reset that I've learned:</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            * {<br>
+                            &nbsp;&nbsp;margin: 0;<br>
+                            &nbsp;&nbsp;padding: 0;<br>
+                            &nbsp;&nbsp;box-sizing: border-box;<br>
+                            }
+                        </code>
+                    </div>
+                </section>
+
+                <section class="what-im-still-learning">
+                    <h2>What I'm Still Learning</h2>
+                    <p>I'll be very honest - I still struggle with some aspects of CSS. Margin collapse still trips me up sometimes, and don't get me started on positioning and z-index (which I will talk about in the next post). But understanding the box model has made everything else feel more approachable.</p>
+                    <p>The biggest lesson for me was to use browser dev tools constantly. Being able to see the box model visually in the inspector made everything click.</p>
+                </section>
+
+                <section class="tomorrow-goals"">
+                    <h2>Tomorrow's Goals</h2>
+                    <ul class="goals">
+                        <li>Write up post on CSS Typography</li>
+                        <li>Write up post on CSS Units</li>
+                        <li>Dive into CSS Positioning & Z-Index</li>
+                        <li>Dive into CSS Flexbox</li>
+                    </ul>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who somehow found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                </section>
+            </article>
+    </main>
+</body>
+</html>

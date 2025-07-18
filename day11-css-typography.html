@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/css-typography.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Day 11: CSS Typography and Google Fonts | From Zero to Developer, One Line at a Time</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-back">
+            <a href="day10-css-box-model.html">← Day 10: CSS Box Model and Display</a>
+        </nav>
+        <nav class="nav-next">
+            <a href="day12-css-units.html">Day 12: CSS Units →</a>
+        </nav>
+    </header>
+
+    <main>
+            <section class="day11-header">
+                <h1>From Designer to Developer: My Journey with CSS Typography and Google Fonts<h1>
+                <p><em><time datetime="2025-07-20">20 July, 2025</time></em></p>
+            </section>
+
+            <article>
+                <section class="day11-intro">
+                    <p>As someone who transitioned from design to development, I thought I had typography figured out. After years of working with fonts in design software, how hard could web typography be? Well let me tell you - it was a humbling experience that taught me just how different web typography is from print and design work.</p>
+                </section>
+
+                <section class="reality-check">
+                    <h2>The Reality Check: Design Skills Don't Directly Translate</h2>
+                    <p>Coming from a design background, I was quite confident about typography. I knew about kerning, leading, font pairing, and hierarchical systems. I understood the emotion impact of typefaces and had strong opinions about Comic Sans (let's admit it, we all do).</p>
+                    <p>But when I started coding, I quickly realized that web typography operates under completely different constraints:</p>
+                    <ol>
+                        <li><strong>Performance matters</strong> iin ways I never considered in design</li>
+                        <li><strong>Accessibility</strong> requires technical implementation, not just good intentions</li>
+                        <li><strong>Responsive design</strong> means your carefully crafted typography needs to work across infinite screen sizes</li>
+                        <li><strong>Loading states</strong> and <strong>fallback fonts</strong> aren't concerns in static design work</li>
+                    </ol>
+                </section>
+
+                <section class="css-typography">
+                    <h2>Translating Design Typography Knowledge to CSS</h2>
+                    <p>In design software, you pick a font and it works. In CSS, you need to think about fallbacks:</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            <span id="comment-tag">/* My designer brain wanted this */</span><br>
+                            .heading {<br>
+                            &nbsp;&nbsp;font-family: 'Playfair Display';<br>
+                            }<br>
+                            <br>
+                            <span id="comment"tag>/* But the web requires this */</span><br>
+                            .heading {<br>
+                            &nbsp;&nbsp;font-family: 'Playfair Display', 'Times New Roman', Georgia, serif;<br>
+                            }
+                    </div>
+                    <p>This was my first lesson in defensive coding. You have to assume things will fail and plan accordingly.</p>
+                </section>
+
+                <section class="google-fonts">
+                    <h2>Linking Google Fonts to HTML & CSS</h2>
+                    <h3>Method 1: HTML Link Tag (Recommended)</h3>
+                    <p>Add this to your HTML <span id="html-tag">&lt;head&gt;</span> section:</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            &lt;head&gt;<br>
+                            &nbsp;&nbsp;&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;<br>
+                            &nbsp;&nbsp;&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;<br>
+                            &nbsp;&nbsp;&lt;link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"&gt;<br>
+                            &lt;/head&gt;
+                        </code>
+                    </div>
+                    <p>Then use this in your CSS:</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            body {<br>
+                            &nbsp;&nbsp;font-family: 'Open Sans', sans-serif;<br>
+                            }
+                        </code>
+                    </div>
+                    <h3>Method 2: CSS @import</h3>
+                    <p>Add this at the very top of your CSS file:</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');<br>
+                            <br>
+                            body {<br>
+                            &nbsp;&nbsp;font-family: 'Open Sans', sans-serif;<br>
+                            }
+                        </code>
+                    </div>
+                    <h3>How to Get the Font URL:</h3>
+                    <figure>
+                        <img src="images/google-font.png" width="500" alt="Google Fonts screenshot"/>
+                    </figure>
+                        <ol>
+                            <li>Go to <a href="https://fonts.google.com" target="_blank">Google Fonts</a></li>
+                            <li>Search for your desired font</li>
+                            <li>Add the desired font to cart</li>
+                            <li>Click on '&lt;&gt; Get embed code'</li>
+                            <li>Select the style and weight variable if applicable</li>
+                            <li>The code will be ready on the right side of the page</li>
+                        </ol>
+                </section>
+
+                <section class="typography-properties">
+                    <h2>Essential CSS Typography Properties</h2>
+                    <p>Here's a comprehensive reference covering all the eseential CSS typography properties:</p>
+                    <table>
+                        <thead>
+                            <th>Tag</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span id="html-tag">font-family</span></td>
+                                <td>Specifies the font family for text</td>
+                                <td>
+                                    <p id="font-family">This is Times New Roman font.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag"">font-size</span></td>
+                                <td>Sets the size of the font</td>
+                                <td>
+                                    This is <span id="font-size-20">20px</span> and this is <span id="font-size-50">50px</span>.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">font-weight</span></td>
+                                <td>Controls the thickness/boldness of text</td>
+                                <td>
+                                    This is <span id="font-weight-300">300 font weight</span> and this is <span id="font-weight-800">800 font weight</span>.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">font-style</span></td>
+                                <td>defines the style of text (normal, italic, etc)</td>
+                                <td>
+                                    <p id="font-style">This is italic.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">line-height</span></td>
+                                <td>Sets the vertical spacing between lines of text</td>
+                                <td>
+                                    <p id="line-height-1">This is a paragraph of text where the line height is being set to the value of '1'.</p>
+                                    <p id="line-height-2">This is a paragraph of text where the line height is being set to the value of '2'.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">letter-spacing</span></td>
+                                <td>Adjusts spacing between individual characters</td>
+                                <td>
+                                    <p id="letter-spacing-2">This is a line of text where the letter spacing is being set to the value of '2px'.</p>
+                                    <p id="letter-spacing-5">This is a line of text where the letter spacing is being set to the value of '5px'.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">word-spacing</span></td>
+                                <td>Controls spacing between words</td>
+                                <td>
+                                    <p id="word-spacing-2">This is a line of text where the word spacing is being set to the value of '2px'.</p>
+                                    <p id="word-spacing-5">This is a line of text where the word spacing is being set to the value of '5px'.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">text-align</span></td>
+                                <td>Aligns text horizontally (left, right, center, justify)</td>
+                                <td>
+                                    <p id="align-left">This is aligned to the left.</p>
+                                    <p id="align-center">This is aligned to the center.</p>
+                                    <p id="align-right">This is aligned to the right.</p>
+                                    <p id="align-justified">This is aligned to be justified and it needs to be longer so hopefully you can see the justified alignment in the paragraph. (Maybe make your browser smaller so it's more obvious)</p></td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">text-decoration</span></td>
+                                <td>Adds decoration lines to text (underline, overline, line-through, none)</td>
+                                <td>
+                                    This is <span id="deco-underline">underline</span>, <span id="deco-overline">overline</span>, <span id="deco-line-through">line-through</span> and well, <span id="deco-none">none</span>.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">text-transform</span></td>
+                                <td>Controls capitalization (uppercase, lowercase)</td>
+                                <td>
+                                    Do I really have to show an example for this one? Well, let's just do it. <span id="transform-uppercase">this is all uppercase, and hey i really used the stylesheet for this.</span> <span id="transform-lowercase">AND THIS IS LOWERCASE.</span><br>
+                                    <figure>
+                                        <img src="images/text-transform.png"/>
+                                        <figcaption>(Just wanna show you the magic of CSS)</figcaption>
+                                    </figure>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">color</span></td>
+                                <td>Sets the color of text</td>
+                                <td>
+                                    My favourite color is <span id="color-green">forest green</span>, and sometimes (I don't really admit it) but I kinda like <span id="color-pink">dusty pink</span> too.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="tomorrow-goals"">
+                    <h2>Tomorrow's Goals</h2>
+                    <ul class="goals">
+                        <li>Write up post on CSS Positioning and Z-Index</li>
+                        <li>Write up post on CSS Flexbox</li>
+                        <li>Start applying CSS styles in this journey blog</li>
+                    </ul>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who somehow found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                </section>
+            </article>
+    </main>
+</body>
+</html>

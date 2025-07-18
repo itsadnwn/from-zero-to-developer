@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Day 11: CSS Typography and Google Fonts | From Zero to Developer, One Line at a Time</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-back">
+            <a href="day11-css-typography.html">← Day 11: CSS Typography and Google Fonts</a>
+        </nav>
+        <nav class="nav-next">
+            <a href="#">Day 13: Coming soon →</a>
+        </nav>
+    </header>
+
+    <main>
+            <section class="day12-header">
+                <h1>CSS Units: What I've Learned About Absolute and Relative Units<h1>
+                <p><em><time datetime="2025-07-20">20 July, 2025</time></em></p>
+            </section>
+
+            <article>
+                <section class="day12-intro">
+                    <p>Diving back into CSS Units because I used to be confused about all the different units that can be used. After spending some time to read through different explanations, and watching Colt Steele's <a href="https://www.youtube.com/watch?v=fi81bovqxXI" target="_blank">CSS Units Video</a>, I finally understand when to use what. Let me share what I've learned about CSS units and hopefully it'll help you, too!</p>
+                </section>
+
+                <section class="css-units">
+                    <p>CSS units fall into two camps: absolute units (which stay the same size no matter what) and relative units (which change based on other things). When I first started, frankly I just used pixels for everything because it seemed simpler. But really, it wasn't always the best choice!</p>
+                    <table>
+                        <thead>
+                            <th colspan="4">CSS Units</th>
+                        </thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>When to Use</th>
+                        </tr>
+                        <tr>
+                            <th colspan="4">Absolute Units</th>
+                        </tr>
+
+                        <tbody>
+                            <!-- pixels -->
+                            <tr>
+                                <td>Pixels (px)</td>
+                                <td>One pixel equals one dot on the screen, and it stays the same size regardless of anything else. But it's really not recommended for responsive websites.</td>
+                                <td>
+                                    <code class="html-example-text">
+                                        .button {<br>
+                                        &nbsp;&nbsp;width: 200px;<br>
+                                        &nbsp;&nbsp;height: 40px;<br>
+                                        &nbsp;&nbsp;font-size: 16px;<br>
+                                        }
+                                    </code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Border widths (like <span id="html-tag">border: 1px solid black;</span>)</li>
+                                        <li>Small decorative elements</li>
+                                        <li>When I need something to be exactly the same size everywhere</li>
+                                    </ul></td>
+                            </tr>
+                            <!-- points -->
+                            <tr>
+                                <td>Points (pt)</td>
+                                <td>One point equals 1/72 of an inch, which comes from the printing world. Not really for screen designs.</td>
+                                <td>
+                                    <code class="html-example-text">*Ditching the example because it's not really relevant*</code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Pretty much only for print styles</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th colspan="4">Relative Units</th>
+                            </tr>
+                            <!-- em -->
+                            <tr>
+                                <td>Em (em)</td>
+                                <td>An em is relative to the font size of the element it's used on. So, if an element has a font size of 16px, then 1em=16px for that element.</td>
+                                <td>
+                                    <code class="html-example-text">
+                                        .parent {<br>
+                                        &nbsp;&nbsp;font-size: 20px;<br>
+                                        }<br>
+                                        <br>
+                                        .child {<br>
+                                        &nbsp;&nbsp;font-size: 1.5em; <span id="comment-tag">/*This becomes 30px (20px * 1.5) */</span><br>
+                                        &nbsp;&nbsp;margin: 2em; <span id="comment-tag">/* This becomes 60px (30px * 2) */</span><br>
+                                        }
+                                    </code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Padding and margins that should scale with text</li>
+                                        <li>When I want elements to grow/shrink with their font size</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <!-- rem -->
+                            <tr>
+                                <td>Root Em (rem)</td>
+                                <td>Em's simpler cousin. Instead of being relative to the current element's font size, rem is always relative to the root element's font size (usually 16px).</td>
+                                <td>
+                                    <code class="html-example-text">
+                                        html {<br>
+                                        &nbsp;&nbsp;font-size: 16px;<br>
+                                        }<br>
+                                        <br>
+                                        .card {<br>
+                                        &nbsp;&nbsp;font-size: 1.2rem; <span id="comment-tag">/* Always 19.2px */</span><br>
+                                        &nbsp;&nbsp;padding: 1rem; <span id="comment-tag">/* Always 16px */</span><br>
+                                        &nbsp;&nbsp;margin: 2rem; <span id="comment-tag">/* Always 32px */</span><br>
+                                        }
+                                    </code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Font sizes</li>
+                                        <li>Consistent spacing through the shite</li>
+                                        <li>Pretty much everywhere I used to use pixels lol</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <!-- percentages -->
+                            <tr>
+                                <td>Percentages (%)</td>
+                                <td>Percentages are relative to the parent element. This seemed straightforward until I realized it depends on which property you're using.</td>
+                                <td>
+                                    <code class="html-example-text">
+                                        .container {<br>
+                                        &nbsp;&nbsp;width: 800px;<br>
+                                        &nbsp;&nbsp;height: 400px;<br>
+                                        }<br>
+                                        <br>
+                                        .box {<br>
+                                        &nbsp;&nbsp;width: 50%; <span id="comment-tag">/*This becomes 400px (50px of 800px) */</span><br>
+                                        &nbsp;&nbsp;height: 25%; <span id="comment-tag">/* This becomes 100px (25% of 400px) */</span><br>
+                                        &nbsp;&nbsp;font-size: 150%; <span id="comment-tag">/* 150% of parent's font size */</span><br>
+                                        &nbsp;&nbsp;padding: 10%; <span id="comment-tag">/* 10% of parent's WIDTH (80%), not height! */</span><br>
+                                        }
+                                    </code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Making responsive layouts</li>
+                                        <li>Creating flexible containers</li>
+                                        <li>Grid and flexbox layouts</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <!-- viewport units -->
+                            <tr>
+                                <td>Viewport Units (vw, vh, vmin, vmax)</td>
+                                <td>Relative to the viewport (the browser window):
+                                    <ul>
+                                        <li><strong>vw</strong>: 1% of viewport width</li>
+                                        <li><strong>vh</strong>: 1% of viewport height</li>
+                                        <li><strong>vmin</strong>: 1% of the smaller dimension</li>
+                                        <li><strong>vmax</strong>: 1% of the larger dimension</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <code class="html-example-text">
+                                        .hero-section {<br>
+                                        &nbsp;&nbsp;height: 100vh; <span id="comment-tag">/* Always fills the full height of the screen */</span><br>
+                                        }<br>
+                                        <br>
+                                        .responsive-text {<br>
+                                        &nbsp;&nbsp;font-size: 4vw; <span id="comment-tag">/* Scales with screen width */</span><br>
+                                        }
+                                    </code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Full-screen sections</li>
+                                        <li>Responsive typography</li>
+                                        <li>Elements that should scale with the screen</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Hope this helps to avoid any confusion that you might have! CSS units can be tricky, and I'm still trying to get the hang of them as well. As tricky as they can be, they're actually pretty powerful tools for creating flexible, responsive designs. And I can't wait to experiment with them in my future projects!</p>
+                </section>
+
+                <section class="tomorrow-goals"">
+                    <h2>Tomorrow's Goals</h2>
+                    <ul class="goals">
+                        <li>Write up post on CSS Positioning and Z-Index</li>
+                        <li>Write up post on CSS Flexbox</li>
+                        <li>Start applying CSS styles in this journey blog</li>
+                    </ul>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who somehow found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                </section>
+            </article>
+    </main>
+</body>
+</html>

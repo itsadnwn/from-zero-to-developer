@@ -1,0 +1,95 @@
+#font-family {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#font-size-20 {
+    font-size: 20px;
+}
+
+#font-size-50 {
+    font-size: 50px;
+}
+
+#font-weight-300 {
+    font-weight: 300;
+}
+
+#font-weight-800 {
+    font-weight: 800;
+}
+
+#font-style {
+    font-style: italic;
+}
+
+#line-height-1 {
+    line-height: 1;
+}
+
+#line-height-2 {
+    line-height: 2;
+}
+
+#letter-spacing-2 {
+    letter-spacing: 2px;
+}
+
+#letter-spacing-5 {
+    letter-spacing: 5px;
+}
+
+#word-spacing-2 {
+    word-spacing: 2px;
+}
+
+#word-spacing-5 {
+    word-spacing: 5px;
+}
+
+#align-left {
+    text-align: left;
+}
+
+#align-center {
+    text-align: center;
+}
+
+#align-right {
+    text-align: right;
+}
+
+#align-justified {
+    text-align: justify;
+}
+
+#deco-underline {
+    text-decoration: underline;
+}
+
+#deco-overline {
+    text-decoration: overline;
+}
+
+#deco-line-through {
+    text-decoration: line-through;
+}
+
+#deco-none {
+    text-decoration: none;
+}
+
+#transform-uppercase {
+    text-transform: uppercase;
+}
+
+#transform-lowercase {
+    text-transform: lowercase;
+}
+
+#color-green {
+    color: #2e6f40;
+}
+
+#color-pink {
+    color: #dca1a1;
+}
