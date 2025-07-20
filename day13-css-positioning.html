@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Day 13: CSS Positioning and Z-Unit | From Zero to Developer, One Line at a Time</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-back">
+            <a href="day12-css-units.html">← Day 12: CSS Units</a>
+        </nav>
+        <nav class="nav-next">
+            <a href="day14-css-flexbox-container.html">Day 14: CSS Flexbox Container →</a>
+        </nav>
+    </header>
+
+    <main>
+            <section class="day13-header">
+                <h1>My Journey Through CSS Positioning and Z-Index<h1>
+                <p><em><time datetime="2025-07-21">21 July, 2025</time></em></p>
+            </section>
+
+            <article>
+                <section class="day13-intro">
+                    <p>Diving back into CSS positioning and z-index have been quite the learning experience. These concepts seemed simple at first, but there's definitely more complexity under the hood than I initially realized.</p>
+                </section>
+
+                <section class="css-positions">
+                    <h2>The Great Position Mystery</h2>
+                    <p>I used to think elements just... went where they were supposed to go. Boy, was I wrong.</p>
+                    <figure>
+                        <img src="images/css-positioning.jpg" width="550" alt="CSS Positioning Notes"/>
+                    </figure>
+                    <table>
+                        <thead>
+                            <th>Position</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>When to Use</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span id="html-tag">position: static;</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Default position for all elements</li>
+                                        <li>Flows naturally with the document, one after another</li>
+                                        <li>Can't move them around with <span id="html-tag">top</span>, <span id="html-tag">right</span>, <span id="html-tag">bottom</span> and <span id="html-tag">left</span>.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <code class="html-example-text">
+                                        .normal-element {<br>
+                                        &nbsp;&nbsp;position: static; <span id="comment-tag">/* This is the default, so you don't even need to write it */</span><br>
+                                        }
+                                    </code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Most of the content (paragraphs, headings, images in normal flow)</li>
+                                        <li>When elements are required to follow natural document flow</li>
+                                        <li>For responsive layouts when elements should stack naturally</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">position: relative;</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Can be moved around with <span id="html-tag">top</span>, <span id="html-tag">right</span>, <span id="html-tag">bottom</span> and <span id="html-tag">left</span>.</li>
+                                        <li>Original space in document flow is preserved</li>
+                                        <li>Other elements behave as if this element is still in its original position</li>
+                                        <li>Creates a containing block for <span id="html-tag">absolute</span> positioned children</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <code class="html-example-text">
+                                        .moved-but-space-saved {<br>
+                                        &nbsp;&nbsp;position: relative;<br>
+                                        &nbsp;&nbsp;top: 20px; <span id="comment-tag">/* Moves 20px down from where it would normally be */</span><br>
+                                        &nbsp;&nbsp;left: 10px; <span id="comment-tag">/* Moves 10px to the right */</span><br>
+                                        }
+                                    </code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Making small adjustments to element position without affecting layout</li>
+                                        <li>Creating a positioning context for <span id="html-tag">absolute</span> positioned children</li>
+                                        <li>Adding subtle animations or hover effects</li>
+                                        <li>When an element needs to be nudged slightly without breaking the layout</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">position: absolute;</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Completely removed from the document flow</li>
+                                        <li>Other elements behave as if this element doesn't exist</li>
+                                        <li>Position relative to the nearest positioned ancestor (or the viewport, if there's none)</li>
+                                        <li>Width shrinks to content unless specified otherwise</li>
+                                        <li>Can overlap with other elements</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <code class="html-example-text">
+                                    .floating-element {<br>
+                                    &nbsp;&nbsp;position: absolute;<br>
+                                    &nbsp;&nbsp;top: 0; <span id="comment-tag">/* Sticks to the top of its positioned parent */</span><br>
+                                    &nbsp;&nbsp;right: 0; <span id="comment-tag">/* Sticks to the right side */</span><br>
+                                    }
+                                    </code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Tooltips and popup menus</li>
+                                        <li>Model overlays and dialogs</li>
+                                        <li>Decorative elements that shouldn't affect layout</li>
+                                        <li>Custom dropdown menus</li>
+                                        <li>Floating action buttons</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">position: fixed;</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Positioned relative to the viewport</li>
+                                        <li>Stays in the same position when scrolling</li>
+                                        <li>Removed from document flow</li>
+                                        <li>Always visible (unless moved off-screen)</li>
+                                        <li>Common for navigation bars, chat widgets, etc.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <code class="html-example-text">
+                                        .sticky-nav {<br>
+                                        &nbsp;&nbsp;position: fixed;<br>
+                                        &nbsp;&nbsp;top: 0;<br>
+                                        &nbsp;&nbsp;left: 0;<br>
+                                        &nbsp;&nbsp;width: 100%;<br>
+                                        }
+                                    </code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Navigation bars that stay at the top/bottom of the screen</li>
+                                        <li>Chat widgets or help buttons</li>
+                                        <li>Floating shopping cart icons</li>
+                                        <li>Back-to-top buttons</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="html-tag">position: sticky;</span></td>
+                                <td>
+                                    <ul>
+                                        <li>Starts as normal flow, then becomes fixed when scrolling</li>
+                                        <li>Sticks to a specified position within its container</li>
+                                        <li>Requires a threshold value (<span id="html-tag">top</span>, <span id="html-tag">bottom</span>, etc)</li>
+                                        <li>Only sticks within its parent container</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <code class="html-example-text">
+                                        .sticky-header {<br>
+                                        &nbsp;&nbsp;position: sticky;<br>
+                                        &nbsp;&nbsp;top: 0; <span id="comment-tag">/* Sticks to the top when scrolling */</span><br>
+                                        &nbsp;&nbsp;background: white;<br>
+                                        &nbsp;&nbsp;z-index: 10;<br>
+                                        }
+                                    </code>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Table headers that stick when scrolling through data</li>
+                                        <li>Section headings in long articles</li>
+                                        <li>Sidebar elements that follow you partway down the page</li>
+                                        <li>Category filters that stick until you reach the next section</li>
+                                        <li>Navigation elements with a specific content area</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="z-index">
+                    <h2>The Z-Index</h2>
+                    <p>Z-index seemed straightforward to me at first - higher numbers go in front, right? Well, sort of. But there's more to it than meets the eye.</p>
+                    <h3>The Stacking Context Revelation</h3>
+                    <p>Here's the mind-blowing part that nobody tells you upfront: z-index only works on positioned elements (anything except <span id="html-tag">position: static</span>). And there's more! Z-index only compares elements within the same "stacking context" - this means if you have 2 separate groups of elements, the child element can't jump between groups no matter how high their z-index is.</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            <span id="comment-tag">/* This won't work the way you think */</span><br>
+                            .parent-1 { z-index: 1; }<br>
+                            .parent-2 { z-index: 2; }<br>
+                            .child-in-parent-1 { z-index: 999; } <span id="comment-tag">/* Still behind parent-2! */</span>
+                        </code>
+                    </div>
+
+                    <h3>What Creates Stacking Contexts</h3>
+                    <p>Lots of things create stacking contexts, not just z-index:</p>
+                    <ul>
+                        <li>Elements with <span id="html-tag">opacity</span> less than 1</li>
+                        <li>Elements with <span id="html-tag">transform</span></li>
+                        <li>Elements with <span id="html-tag">filter</span></li>
+                        <li>And a bunch of other properties I'm still discovering</li>
+                    </ul>
+                </section>
+
+                <section class="lessons-learned">
+                    <h2>My Hard-Learned Lessons</h2>
+                    <ol>
+                        <li><strong>Start with a plan:</strong> Don't just randomly assign z-index values. I now use a scale like 100, 200, 300, etc.</li>
+                        <li><strong>Understand my stacking contexts.</strong> Before I start debugging my z-index issues, I need to figure out what's creating stacking contexts in my layout.</li>
+                        <li><strong>Use developer tools.</strong> The 3D view in Chrome DevTools is a lifesaver for understanding how my elements are layered.</li>
+                        <li><strong>Avoid z-index wars.</strong> Those crazy high numbers like 99999 are usually a sign that something else is wrong.</li>
+                        <li><strong>Position matters.</strong> I constantly remind myself that z-index only works on positioned elements.</li>
+                    </ol>
+                </section>
+
+                <section class="tomorrow-goals"">
+                    <h2>Tomorrow's Goals</h2>
+                    <ul class="goals">
+                        <li>Create a static mockup page on how I want this blog to look like</li>
+                        <li>Style this page with CSS according to how the mockup page looks like</li>
+                        <li>Start watching tutorials and reading up on Javascript (I could really use some help with this)</li>
+                    </ul>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who somehow found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                </section>
+            </article>
+    </main>
+</body>
+</html>
