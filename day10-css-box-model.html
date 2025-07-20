@@ -35,7 +35,7 @@
 
                 <section class="the-big-picture">
                     <h2>The Big Picture: Everything is a Box</h2>
-                    <p>One thing that really helped me understand CSS was realizing that every single element on a webpage is essentially a rectangular box. Even circles and fancy shapes - they're all living inside invisible rectangles. One I accepted this, the box model started making more sense.</p>
+                    <p>One thing that really helped me understand CSS was realizing that every single element on a webpage is essentially a rectangular box. Even circles and fancy shapes - they're all living inside invisible rectangles. Once I accepted this, the box model started making more sense.</p>
                     <figure>
                         <img src="images/box-model.jpeg" width="450" alt="notes on box model"/>
                     </figure>
@@ -78,7 +78,7 @@
                     <h3>Padding: The Breathing Room Inside</h3>
                     <p>Padding was actually the easiest part for me to understand. It's like the cushioning inside a box - it pushes the content away from the edges. One thing to remember though: padding affects the total size of an element!</p>
                     <h3>Margin: The Space Between Things</h3>
-                    <p>Margin create space <em>around</em> elements, and they have this weird thing called "margin collapse" that I'm still wrapping my head around. If you have 2 elements stacked vertically with margins, they don't add up - they collapse into the larger margin. Does that make sense? Let me give an example!</p>
+                    <p>Margin creates space <em>around</em> elements, and they have this weird thing called "margin collapse" that I'm still wrapping my head around. If you have 2 elements stacked vertically with margins, they don't add up - they collapse into the larger margin. Does that make sense? Let me give an example!</p>
                     <div class="html-example">
                         <code class="html-example-text">
                             .box-one {<br>
@@ -95,7 +95,7 @@
 
                 <section class="box-sizing">
                     <h2>Box-Sizing: The Game Changer</h2>
-                    <p>This property literally changed how I approach CSS. There are actually 3 different values for <span id="html-tag">box-sizing</span>, and understanding them made a huge difference in how I write CSS.</p>
+                    <p>This property literally changed how I approach CSS. There are actually 2 different values I want to touch on today for <span id="html-tag">box-sizing</span>, and understanding them made a huge difference in how I write CSS.</p>
                     <h3>content-box (Default)</h3>
                     <div class="html-example">
                         <code class="html-example-text">
@@ -108,7 +108,7 @@
                             }
                         </code>
                     </div>
-                    <p>This is what I started with, and it's the default behaviour. The width and height you set only apply to the content area. Everything else gets added don top.</p>
+                    <p>This is what I started with, and it's the default behaviour. The width and height you set only apply to the content area. Everything else gets added on top.</p>
 
                     <h3>border-box (My New Best Friend)</h3>
                     <div class="html-example">
@@ -118,27 +118,12 @@
                             &nbsp;&nbsp;width: 300px;<br>
                             &nbsp;&nbsp;padding: 20px;<br>
                             &nbsp;&nbsp;border: 5px solid blue;<br>
-                            &nbsp;&nbsp;<span id="comment tag">/* Total width: exactly 300px! */<br>
+                            &nbsp;&nbsp;<span id="comment-tag">/* Total width: exactly 300px! */<br>
                             &nbsp;&nbsp;/* Content area becomes: 250px (300 - 20 - 20 - 5 - 5) */</span><br>
                             }
                         </code>
                     </div>
                     <p>Once I discovered this, my life got so much easier. Now when I say something is 300px wide, it's actually 300px wide, including padding and border. The content area shrinks to accommodate them.</p>
-
-                    <h3>padding-box (The Rarely Used One)</h3>
-                    <div class="html-example">
-                        <code class="html-example-text">
-                            .padding-box {<br>
-                            &nbsp;&nbsp;box-sizing: padding-box;<br>
-                            &nbsp;&nbsp;width: 300px;<br>
-                            &nbsp;&nbsp;padding: 20px;<br>
-                            &nbsp;&nbsp;border: 5px solid blue;<br>
-                            &nbsp;&nbsp;<span id="comment-tag">/* Total width: 310px (300 + 5 + 5 for borders) */<br>
-                            &nbsp;&nbsp;/* Width includes content + padding, but not border */</span><br>
-                            }
-                        </code>
-                    </div>
-                    <p>I've barely used this one. It includes padding in the width calculation but not the border. It's kind of a middle ground between the other two, but I haven't found a practical use case for it yet.</p>
                 </section>
 
                 <section class="display-properties">
