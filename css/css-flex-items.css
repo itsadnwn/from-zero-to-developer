@@ -1,0 +1,263 @@
+.flex-grow-box-1 {
+    background: #fbb4ae;
+    width: 15vw;
+    flex-grow: 1;
+}
+
+.flex-grow-box-2 {
+    background: #b3cde3;
+    width: 15vw;
+    flex-grow: 3;
+}
+
+.flex-grow-box-3 {
+    background: #ccebc6;
+    width: 15vw;
+    flex-grow: 5;
+}
+
+.flex-grow .example {
+    display: flex;
+    border: 2px solid black;
+    height: 10vh;
+}
+
+.flex-shrink-box-1 {
+    background: #fbb4ae;
+    flex-shrink: 1;
+    width: 200px;
+}
+
+.flex-shrink-box-2 {
+    background: #b3cde3;
+    flex-shrink: 0;
+    width: 300px;
+}
+
+.flex-shrink-box-3 {
+    background: #ccebc6;
+    flex-shrink: 3;
+    width: 500px;
+}
+
+.flex-shrink .example {
+    display: flex;
+    border: 2px solid black;
+    height: 10vh;
+    flex-wrap: nowrap;
+}
+
+.flex-basis-box-1 {
+    background: #fbb4ae;
+    flex-basis: 300px;
+}
+
+.flex-basis-box-2 {
+    background: #b3cde3;
+    flex-basis: 0;
+}
+
+.flex-basis-box-3 {
+    background: #ccebc6;
+    flex-basis: 50%;
+}
+
+.flex-basis .example {
+    display: flex;
+    border: 2px solid black;
+    height: 10vh;
+    flex: nowrap;
+}
+
+.align-self-auto-box-1 {
+    background: #fbb4ae;
+    width: 20vw;
+}
+
+.align-self-auto-box-2 {
+    background: #b3cde3;
+    width: 20vw;
+}
+
+.align-self-auto-box-3 {
+    background: #ccebc6;
+    width: 20vw;
+}
+
+.align-self-auto-box-4 {
+    background: #decbe4;
+    width: 20vw;
+}
+
+.align-self-auto-box-5 {
+    background: #fed9a6;
+    width: 20vw;
+}
+
+.align-self-auto .example {
+    display: flex;
+    border: 2px solid black;
+    align-items: flex-end;
+    align-self: auto;
+    height: 10vh;
+}
+
+.align-self-flex-start-box-1 {
+    background: #fbb4ae;
+}
+
+.align-self-flex-start-box-2 {
+    background: #b3cde3;
+}
+
+.align-self-flex-start-box-3 {
+    background: #ccebc6;
+}
+
+.align-self-flex-start-box-4 {
+    background: #decbe4;
+}
+
+.align-self-flex-start-box-5 {
+    background: #fed9a6;
+    align-self: flex-start;
+}
+
+.align-self-flex-start .example {
+    display: flex;
+    border: 2px solid black;
+    height: 10vh;
+}
+
+.align-self-flex-end-box-1 {
+    background: #fbb4ae;
+}
+
+.align-self-flex-end-box-2 {
+    background: #b3cde3;
+}
+
+.align-self-flex-end-box-3 {
+    background: #ccebc6;
+    align-self: flex-end;
+}
+
+.align-self-flex-end-box-4 {
+    background: #decbe4;
+}
+
+.align-self-flex-end-box-5 {
+    background: #fed9a6;
+    align-self: flex-end;
+}
+
+.align-self-flex-end .example {
+    display: flex;
+    border: 2px solid black;
+    height: 10vh;
+}
+
+.align-self-center-box-1 {
+    background: #fbb4ae;
+    align-self: center;
+}
+
+.align-self-center-box-2 {
+    background: #b3cde3;
+}
+
+.align-self-center-box-3 {
+    background: #ccebc6;
+}
+
+.align-self-center-box-4 {
+    background: #decbe4;
+}
+
+.align-self-center-box-5 {
+    background: #fed9a6;
+    align-self: center;
+}
+
+.align-self-center .example {
+    display: flex;
+    border: 2px solid black;
+    height: 10vh;
+}
+
+.align-self-baseline-box-1 {
+    background: #fbb4ae;
+}
+
+.align-self-baseline-box-2 {
+    background: #b3cde3;
+    align-self: baseline;
+}
+
+.align-self-baseline-box-3 {
+    background: #ccebc6;
+}
+
+.align-self-baseline-box-4 {
+    background: #decbe4;
+}
+
+.align-self-baseline-box-5 {
+    background: #fed9a6;
+}
+
+.align-self-baseline .example {
+    display: flex;
+    border: 2px solid black;
+    height: 10vh;
+}
+
+.align-self-stretch-box-1 {
+    background: #fbb4ae;
+}
+
+.align-self-stretch-box-2 {
+    background: #b3cde3;
+    align-self: stretch;
+}
+
+.align-self-stretch-box-3 {
+    background: #ccebc6;
+}
+
+.align-self-stretch-box-4 {
+    background: #decbe4;
+    align-self: stretch;
+}
+
+.align-self-stretch-box-5 {
+    background: #fed9a6;
+}
+
+.align-self-stretch .example {
+    display: flex;
+    border: 2px solid black;
+    height: 10vh;
+    align-items: flex-start;
+}
+
+.flex-items-order-box-1 {
+    background: #fbb4ae;
+    order: 2;
+}
+
+.flex-items-order-box-2 {
+    background: #b3cde3;
+    order: 3;
+}
+
+.flex-items-order-box-3 {
+    background: #ccebc6;
+    order: 1;
+}
+
+.flex-items-order .example {
+    display: flex;
+    border: 2px solid black;
+    height: 10vh;
+}

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Flexbox Containers CSS -->
+     <link rel="stylesheet" href="css/css-flexbox-container.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Day 13: CSS Positioning and Z-Unit | From Zero to Developer, One Line at a Time</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-back">
+            <a href="day13-css-positioning.html">← Day 13: CSS Positioning and Z-Index</a>
+        </nav>
+        <nav class="nav-next">
+            <a href="day15-css-flexbox-flex-items.html">Day 15: CSS Flex Items →</a>
+        </nav>
+    </header>
+
+    <main>
+            <section class="day14-header">
+                <h1>My CSS Flexbox Learning Guide<h1>
+                <p><em><time datetime="2025-07-21">21 July, 2025</time></em></p>
+            </section>
+
+            <article>
+                <section class="day14-intro">
+                    <p>I did not have the best experience learning about CSS Flexbox. It took me awhile to understand what's going on, and what helped me was Colt Steele's video!</p>
+                    <iframe width="700" height="450" src="https://www.youtube.com/embed/qZv-rNx0jEA?si=htcOaC3vrm52ul1o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </section>
+
+                <section class="flex-container">
+                    <h2>Making a Container into a Flex Container</h2>
+                    <p>The first thing I learned is that you need to explicitly tell CSS that you want to use flexbox. You do this by adding <span id="html-tag">display: flex;</span> to your container:</p>
+                    <div class="html-example">
+                        <code class="html-example-text">
+                            .my-container {<br>
+                            &nbsp;&nbsp;display: flex;<br>
+                            }
+                        </code>
+                    </div>
+                    <p>That's it! Once I added this, my container becomes a "flex container" and all its direction child become "flex items".</p>
+                </section>
+
+                <section class="inside-flex-container">
+                    <h2>What Goes Inside a Flex Container?</h2>
+                    <p>This was something that confused me at first. The flex container can hold any HTML elements as direct children. The keyword here is <em>direct children</em> - only the immediate child elements become flex items. If there are nested elements, those won't be affected by the flex properties.</p>
+                </section>
+
+                <section class="container-properties">
+                    <h2>The Five Main Flex Container Properties</h2>
+                    <details class="container-properties flex-direction">
+                        <summary class="container-properties-title">flex-direction</summary>
+                        <p>This property controls which direction your flex items flow. I think of it as setting the "main axis" of the container.</p>
+
+                        <div class="flex-direction-example">
+                            <div class="flex-direction-row">
+                                <div class="flex-direction-row description">
+                                    <p><span id="html-tag">flex-direction: row;</span> (default)</p>
+                                    <p>Items flow left to right, horizontally</p>
+                                </div>
+                                <div class="flex-direction-row example">
+                                    <div class="flex-direction-box box1">one</div>
+                                    <div class="flex-direction-box box2">two</div>
+                                    <div class="flex-direction-box box3">three</div>
+                                    <div class="flex-direction-box box4">four</div>
+                                    <div class="flex-direction-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="flex-direction-row-reverse">
+                                <div class="flex-direction-row-reverse description">
+                                    <p><span id="html-tag">flex-direction: row-reverse;</span></p>
+                                    <p>Items from right to left, horizontally</p>
+                                </div>
+                                <div class="flex-direction-row-reverse example">
+                                    <div class="flex-direction-box box1">one</div>
+                                    <div class="flex-direction-box box2">two</div>
+                                    <div class="flex-direction-box box3">three</div>
+                                    <div class="flex-direction-box box4">four</div>
+                                    <div class="flex-direction-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="flex-direction-column">
+                                <div class="flex-direction-column description">
+                                    <p><span id="html-tag">flex-direction: column;</span></p>
+                                    <p>Items from top to bottom, vertically</p>
+                                </div>
+                                <div class="flex-direction-column example">
+                                    <div class="flex-direction-box box1">one</div>
+                                    <div class="flex-direction-box box2">two</div>
+                                    <div class="flex-direction-box box3">three</div>
+                                    <div class="flex-direction-box box4">four</div>
+                                    <div class="flex-direction-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="flex-direction-column-reverse">
+                                <div class="flex-direction-column-reverse description">
+                                    <p><span id="html-tag">flex-direction: column-reverse;</span></p>
+                                    <p>Items from bottom to top, vertically</p>
+                                </div>
+                                <div class="flex-direction-column-reverse example">
+                                    <div class="flex-direction-box box1">one</div>
+                                    <div class="flex-direction-box box2">two</div>
+                                    <div class="flex-direction-box box3">three</div>
+                                    <div class="flex-direction-box box4">four</div>
+                                    <div class="flex-direction-box box5">five</div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="container-properties justify-content">
+                        <summary class="container-properties-title">justify-content</summary>
+                        <p>This one controls how items are distributed along the main axis (the direction set by flex-direction).</p>
+
+                        <div class="justify-content-example">
+                            <div class="justify-content-flex-start">
+                                <div class="justify-content-flex-start description">
+                                    <p><span id="html-tag">justify-content: flex-start;</span> (default)</p>
+                                    <p>Items bunch up at the start</p>
+                                </div>
+                                <div class="justify-content-flex-start example">
+                                    <div class="justify-content-box box1">one</div>
+                                    <div class="justify-content-box box2">two</div>
+                                    <div class="justify-content-box box3">three</div>
+                                    <div class="justify-content-box box4">four</div>
+                                    <div class="justify-content-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="justify-content-flex-end">
+                                <div class="justify-content-flex-end description">
+                                    <p><span id="html-tag">justify-content: flex-end;</span></p>
+                                    <p>Items bunch up at the end</p>
+                                </div>
+                                <div class="justify-content-flex-end example">
+                                    <div class="justify-content-box box1">one</div>
+                                    <div class="justify-content-box box2">two</div>
+                                    <div class="justify-content-box box3">three</div>
+                                    <div class="justify-content-box box4">four</div>
+                                    <div class="justify-content-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="justify-content-center">
+                                <div class="justify-content-center description">
+                                    <p><span id="html-tag">justify-content: center;</span></p>
+                                    <p>Items cluster in the middle</p>
+                                </div>
+                                <div class="justify-content-center example">
+                                    <div class="justify-content-box box1">one</div>
+                                    <div class="justify-content-box box2">two</div>
+                                    <div class="justify-content-box box3">three</div>
+                                    <div class="justify-content-box box4">four</div>
+                                    <div class="justify-content-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="justify-content-space-between">
+                                <div class="justify-content-space-between description">
+                                    <p><span id="html-tag">justify-content: space-between;</span></p>
+                                    <p>Items spread out with space between them, but touching the edges</p>
+                                </div>
+                                <div class="justify-content-space-between example">
+                                    <div class="justify-content-box box1">one</div>
+                                    <div class="justify-content-box box2">two</div>
+                                    <div class="justify-content-box box3">three</div>
+                                    <div class="justify-content-box box4">four</div>
+                                    <div class="justify-content-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="justify-content-space-around">
+                                <div class="justify-content-space-around description">
+                                    <p><span id="html-tag">justify-content: space-around;</span></p>
+                                    <p>Items have equal space around them (including at the edges)</p>
+                                </div>
+                                <div class="justify-content-space-around example">
+                                    <div class="justify-content-box box1">one</div>
+                                    <div class="justify-content-box box2">two</div>
+                                    <div class="justify-content-box box3">three</div>
+                                    <div class="justify-content-box box4">four</div>
+                                    <div class="justify-content-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="justify-content-space-evenly">
+                                <div class="justify-content-space-evenly description">
+                                    <p><span id="html-tag">justify-content: space-evenly;</span></p>
+                                    <p>Items have perfectly equal space between and around them</p>
+                                </div>
+                                <div class="justify-content-space-evenly example">
+                                    <div class="justify-content-box box1">one</div>
+                                    <div class="justify-content-box box2">two</div>
+                                    <div class="justify-content-box box3">three</div>
+                                    <div class="justify-content-box box4">four</div>
+                                    <div class="justify-content-box box5">five</div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="container-properties flex-wrap">
+                        <summary class="container-properties-title">flex-wrap</summary>
+                        <p>This property determines whether flex items should wrap to new lines or try to fit on one line.</p>
+
+                        <div class="flex-wrap example">
+                            <div class="flex-wrap-nowrap">
+                                <div class="flex-wrap-nowrap description">
+                                    <p><span id="html-tag">flex-wrap: nowrap;</span></p>
+                                    <p>All items stay on one line (they might get squished)</p>
+                                </div>
+                                <div class="flex-wrap-nowrap example">
+                                    <div class="flex-wrap-box box1">one</div>
+                                    <div class="flex-wrap-box box2">two</div>
+                                    <div class="flex-wrap-box box3">three</div>
+                                    <div class="flex-wrap-box box4">four</div>
+                                    <div class="flex-wrap-box box5">five</div>
+                                    <div class="flex-wrap-box box6">six</div>
+                                    <div class="flex-wrap-box box7">seven</div>
+                                    <div class="flex-wrap-box box8">eight</div>
+                                    <div class="flex-wrap-box box9">nine</div>
+                                </div>
+
+                                <div class="flex-wrap-wrap">
+                                    <div class="flex-wrap-wrap description">
+                                        <p><span id="html-tag">flex-wrap: wrap;</span></p>
+                                        <p>Items wrap to new lines when needed</p>
+                                    </div>
+                                    <div class="flex-wrap-wrap example">
+                                        <div class="flex-wrap-box box1">one</div>
+                                        <div class="flex-wrap-box box2">two</div>
+                                        <div class="flex-wrap-box box3">three</div>
+                                        <div class="flex-wrap-box box4">four</div>
+                                        <div class="flex-wrap-box box5">five</div>
+                                        <div class="flex-wrap-box box6">six</div>
+                                        <div class="flex-wrap-box box7">seven</div>
+                                        <div class="flex-wrap-box box8">eight</div>
+                                        <div class="flex-wrap-box box9">nine</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex-wrap-reverse">
+                                    <div class="flex-wrap-reverse description">
+                                        <p><span id="html-tag">flex-wrap: wrap-reverse;</span></p>
+                                        <p>Items wrap to new lines, but in reverse order</p>
+                                    </div>
+                                    <div class="flex-wrap-reverse example">
+                                        <div class="flex-wrap-box box1">one</div>
+                                        <div class="flex-wrap-box box2">two</div>
+                                        <div class="flex-wrap-box box3">three</div>
+                                        <div class="flex-wrap-box box4">four</div>
+                                        <div class="flex-wrap-box box5">five</div>
+                                        <div class="flex-wrap-box box6">six</div>
+                                        <div class="flex-wrap-box box7">seven</div>
+                                        <div class="flex-wrap-box box8">eight</div>
+                                        <div class="flex-wrap-box box9">nine</div>
+                                    </div>
+                                </div>
+                            </div>
+                    </details>
+
+                    <details class="container-properties align-items">
+                        <summary class="container-properties-title">align-items</summary>
+                        <p>This controls how items are aligned along the cross axis (perpendicular to the main axis). If you're using <span id="html-tag">flex-direction: row;</span>, this controls vertical alignment.</p>
+
+                        <div class="align-items example">
+                            <div class="align-items-stretch">
+                                <div class="align-items-stretch description">
+                                    <p><span id="html-tag">align-items: stretch;</span> (default)</p>
+                                    <p>Items stretch to fill the container height</p>
+                                </div>
+                                <div class="align-items-stretch example">
+                                    <div class="align-items-box box1">one</div>
+                                    <div class="align-items-box box2">two</div>
+                                    <div class="align-items-box box3">three</div>
+                                    <div class="align-items-box box4">four</div>
+                                    <div class="align-items-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="align-items-flex-start">
+                                <div class="align-items-flex-start description">
+                                    <p><span id="html-tag">align-items: flex-start;</span></p>
+                                    <p>Items align to the start of the cross axis</p>
+                                </div>
+                                <div class="align-items-flex-start example">
+                                    <div class="align-items-box box1">one</div>
+                                    <div class="align-items-box box2">two</div>
+                                    <div class="align-items-box box3">three</div>
+                                    <div class="align-items-box box4">four</div>
+                                    <div class="align-items-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="align-items-flex-end">
+                                <div class="align-items-flex-end description">
+                                    <p><span id="html-tag">align-items: flex-end;</span></p>
+                                    <p>Items align to the end of the across axis</p>
+                                </div>
+                                <div class="align-items-flex-end example">
+                                    <div class="align-items-box box1">one</div>
+                                    <div class="align-items-box box2">two</div>
+                                    <div class="align-items-box box3">three</div>
+                                    <div class="align-items-box box4">four</div>
+                                    <div class="align-items-box box5">five</div>
+                                </div>
+                            </div>
+
+                            <div class="align-items-center">
+                                <div class="align-items-center description">
+                                    <p><span id="html-tag">align-items: center;</span></p>
+                                    <p>Items center along the cross axis</p>
+                                    </div>
+                                    <div class="align-items-center example">
+                                        <div class="align-items-box box1">one</div>
+                                        <div class="align-items-box box2">two</div>
+                                        <div class="align-items-box box3">three</div>
+                                        <div class="align-items-box box4">four</div>
+                                        <div class="align-items-box box5">five</div>
+                                    </div>
+                            </div>
+
+
+                            <div class="align-items-baseline">
+                                <div class="align-items-baseline description">
+                                    <p><span id="html-tag">align-items: baseline;</span></p>
+                                    <p>Items align along their text baseline</p>
+                                </div>
+                                <div class="align-items-baseline example">
+                                    <div class="align-items-box box1">one</div>
+                                    <div class="align-items-box box2">two</div>
+                                    <div class="align-items-box box3">three</div>
+                                    <div class="align-items-box box4">four</div>
+                                    <div class="align-items-box box5">five</div>
+                                </div>
+                        </div>
+                    </details>
+
+                    <details class="container-properties align-content">
+                        <summary class="container-properties-title">align-content</summary>
+                        <p>This was the trickiest one for me to understand! It only works when you have <span id="html-tag">flex-wrap: wrap;</span> and multiple lines of items. It controls how the lines themselves are distributed in the container.</p>
+
+                        <div class="align-content example">
+                            <div class="align-content-stretch">
+                                <div class="align-content-stretch description">
+                                    <p><span id="html-tag">align-content: stretch;</span> (default)</p>
+                                    <p>Lines stretch to fill the space</p>
+                                </div>
+                                <div class="align-content-stretch example">
+                                    <div class="align-content-box box1">one</div>
+                                    <div class="align-content-box box2">two</div>
+                                    <div class="align-content-box box3">three</div>
+                                    <div class="align-content-box box4">four</div>
+                                    <div class="align-content-box box5">five</div>
+                                    <div class="align-content-box box6">six</div>
+                                    <div class="align-content-box box7">seven</div>
+                                    <div class="align-content-box box8">eight</div>
+                                    <div class="align-content-box box9">nine</div>
+                                </div>
+                            </div>
+
+                            <div class="align-content-flex-start">
+                                <div class="align-content-flex-start description">
+                                    <p><span id="html-tag">align-content: flex-start;</span></p>
+                                    <p>Lines bunch up at the start</p>
+                                </div>
+                                <div class="align-content-flex-start example">
+                                    <div class="align-content-box box1">one</div>
+                                    <div class="align-content-box box2">two</div>
+                                    <div class="align-content-box box3">three</div>
+                                    <div class="align-content-box box4">four</div>
+                                    <div class="align-content-box box5">five</div>
+                                    <div class="align-content-box box6">six</div>
+                                    <div class="align-content-box box7">seven</div>
+                                    <div class="align-content-box box8">eight</div>
+                                    <div class="align-content-box box9">nine</div>
+                                </div>
+                            </div>
+
+                            <div class="align-content-flex-end">
+                                <div class="align-content-flex-end description">
+                                    <p><span id="html-tag">align-content: flex-end;</span></p>
+                                    <p>Lines bunch up at the end</p>
+                                </div>
+                                <div class="align-content-flex-end example">
+                                    <div class="align-content-box box1">one</div>
+                                    <div class="align-content-box box2">two</div>
+                                    <div class="align-content-box box3">three</div>
+                                    <div class="align-content-box box4">four</div>
+                                    <div class="align-content-box box5">five</div>
+                                    <div class="align-content-box box6">six</div>
+                                    <div class="align-content-box box7">seven</div>
+                                    <div class="align-content-box box8">eight</div>
+                                    <div class="align-content-box box9">nine</div>
+                                </div>
+                            </div>
+
+                            <div class="align-content-center">
+                                <div class="align=content-center description">
+                                    <p><span id="html-tag">align-content: center;</span></p>
+                                    <p>Lines cluster in the middle</p>
+                                </div>
+                                <div class="align-content-center example">
+                                    <div class="align-content-box box1">one</div>
+                                    <div class="align-content-box box2">two</div>
+                                    <div class="align-content-box box3">three</div>
+                                    <div class="align-content-box box4">four</div>
+                                    <div class="align-content-box box5">five</div>
+                                    <div class="align-content-box box6">six</div>
+                                    <div class="align-content-box box7">seven</div>
+                                    <div class="align-content-box box8">eight</div>
+                                    <div class="align-content-box box9">nine</div>
+                                </div>
+                            </div>
+
+                            <div class="align-content-space-between">
+                                <div class="align-content-space-between description">
+                                    <p><span id="html-tag">align-content: space-between;</span></p>
+                                    <p>Lines spread out with space between them</p>
+                                </div>
+                                <div class="align-content-space-between example">
+                                    <div class="align-content-box box1">one</div>
+                                    <div class="align-content-box box2">two</div>
+                                    <div class="align-content-box box3">three</div>
+                                    <div class="align-content-box box4">four</div>
+                                    <div class="align-content-box box5">five</div>
+                                    <div class="align-content-box box6">six</div>
+                                    <div class="align-content-box box7">seven</div>
+                                    <div class="align-content-box box8">eight</div>
+                                    <div class="align-content-box box9">nine</div>
+                                </div>
+                            </div>
+
+                            <div class="align-content-space-around">
+                                <div class="align-content-space-around description">
+                                    <p><span id="html-tag">align-content: space-around;</span></p>
+                                    <p>Lines have equal space between them</p>
+                                </div>
+                                <div class="align-content-space-around example">
+                                    <div class="align-content-box box1">one</div>
+                                    <div class="align-content-box box2">two</div>
+                                    <div class="align-content-box box3">three</div>
+                                    <div class="align-content-box box4">four</div>
+                                    <div class="align-content-box box5">five</div>
+                                    <div class="align-content-box box6">six</div>
+                                    <div class="align-content-box box7">seven</div>
+                                    <div class="align-content-box box8">eight</div>
+                                    <div class="align-content-box box9">nine</div>
+                                </div>
+                            </div>
+
+                            <div class="align-content-space-evenly">
+                                <div class="align-content-space-evenly description">
+                                    <p><span id="html-tag">align-content: space-evenly;</span></p>
+                                    <p>Lines have perfectly equal space between and around them</p>
+                                </div>
+                                <div class="align-content-space-evenly example">
+                                    <div class="align-content-box box1">one</div>
+                                    <div class="align-content-box box2">two</div>
+                                    <div class="align-content-box box3">three</div>
+                                    <div class="align-content-box box4">four</div>
+                                    <div class="align-content-box box5">five</div>
+                                    <div class="align-content-box box6">six</div>
+                                    <div class="align-content-box box7">seven</div>
+                                    <div class="align-content-box box8">eight</div>
+                                    <div class="align-content-box box9">nine</div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </section>
+
+                <section class="tomorrow-goals"">
+                    <h2>Tomorrow's Goals</h2>
+                    <ul class="goals">
+                        <li>Create a static mockup page on how I want this blog to look like</li>
+                        <li>Style this page with CSS according to how the mockup page looks like</li>
+                        <li>Start watching tutorials and reading up on Javascript (I could really use some help with this)</li>
+                    </ul>
+                    <p>If you're reading this and you're in a similar place - stuck between learning and doing, or terrified of starting - maybe we can figure this out together. And if you're already a developer who somehow found this mess of a beginner's blog, I'd be incredibly grateful for any encouragement or advice you're willing to share.</p>
+                </section>
+            </article>
+    </main>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <!-- Flexbox Containers CSS -->
+     <link rel="stylesheet" href="css/css-flex-items.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Day 13: CSS Positioning and Z-Unit | From Zero to Developer, One Line at a Time</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-back">
+            <a href="day14-css-flexbox-container.html">← Day 14: CSS Flexbox Container</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="day15-header">
+            <h1>CSS Flex Items Properties</h1>
+            <p><em><time datetime="2025-07-21">21 July, 2025</time></em></p>
+        </section>
+
+        <article>
+            <section class="day15-intro">
+                <p>CSS Flexbox has been something that left me overwhelmed, even until now. But after working with flex items for awhile, I've discovered that understanding these properties is like having a superpower for layout design. Let me share what I've learned about the six main flex item properties and when to use them.</p>
+            </section>
+
+            <section class="flex-items">
+                <h2>What Are Flex Items?</h2>
+                <p>Before diving into the properties, let me clarify what flex items are. When you set <span id="html-tag">display: flex;</span> on a container, all direct children of that container become flex items. These items can then be controlled using specific properties that only work on flex items.</p>
+            </section>
+
+            <section class="flex-items-properties">
+                <h2>The Flex Items Properties</h2>
+                <details class="flex-items-properties flex-grow">
+                    <summary class="flex-items-properties-title">flex-grow</summary>
+                    <p>This property controls how much a flex item should grow relative to other items in the container. I think of it as <em>"how greedy is this item for extra space?"</em></p>
+                    <div class="flex-grow example">
+                        <div class="flex-grow-box-1">one</div>
+                        <div class="flex-grow-box-2">three</div>
+                        <div class="flex-grow-box-3">five</div>
+                    </div>
+                    <div class="flex-grow code">
+                        <code class="html-example-tag">
+                            .flex-grow-example {<br>
+                            &nbsp;&nbsp;display: flex;<br>
+                            &nbsp;&nbsp;border: 2px solid black;<br>
+                            &nbsp;&nbsp;height: 10vh;<br>
+                            }<br>
+                            <br>
+                            .flex-grow-box-1 {<br>
+                            &nbsp;&nbsp;flex-grow: 1;<br>
+                            &nbsp;&nbsp;width: 15vw;<br>
+                            }<br>
+                            <br>
+                            .flex-grow-box-2 {<br>
+                            &nbsp;&nbsp;flex-grow: 3;<br>
+                            &nbsp;&nbsp;width: 15vw;<br>
+                            }<br>
+                            <br>
+                            .flex-grow-box-3 {<br>
+                            &nbsp;&nbsp;flex-grow: 5;<br>
+                            &nbsp;&nbsp;width: 15vw;<br>
+                            }
+                        </code>
+                    </div>
+                </details>
+
+                <details class="flex-items-properties flex-shrink">
+                    <summary class="flex-items-properties-title">flex-shrink</summary>
+                    <p>This property determines how much a flex item should shrink when there's not enough space.</p>
+                    <div class="flex-shrink example">
+                        <div class="flex-shrink-box-1">one</div>
+                        <div class="flex-shrink-box-2">three</div>
+                        <div class="flex-shrink-box-3">five</div>
+                    </div>
+                    <div class="flex-shrink code">
+                        <code class="html-example-tag">
+                            .flex-shrink .example {<br>
+                            &nbsp;&nbsp;display: flex;<br>
+                            &nbsp;&nbsp;border: 2px solid black;<br>
+                            &nbsp;&nbsp;height: 10vh;<br>
+                            &nbsp;&nbsp;flex-wrap: nowrap;<br>
+                            }<br>
+                            <br>
+                            .flex-shrink-box-1 {<br>
+                            &nbsp;&nbsp;flex-shrink: 1;<br>
+                            &nbsp;&nbsp;width: 200px;<br>
+                            }<br>
+                            <br>
+                            .flex-shrink-box-2 {<br>
+                            &nbsp;&nbsp;flex-shrink: 0; <span id="comment-tag">/* Box does not shrink at all */</span><br>
+                            &nbsp;&nbsp;width: 300px;<br>
+                            }<br>
+                            <br>
+                            .flex-shrink-box-3 {<br>
+                            &nbsp;&nbsp;flex-shrink: 3;<br>
+                            &nbsp;&nbsp;width: 500px;<br>
+                            }
+                        </code>
+                    </div>
+                </details>
+
+                <details class="flex-items-properties flex-basis">
+                    <summary class="flex-items-properties-title">flex-basis</summary>
+                    <p>This property sets the initial size of a flex item before free space is distributed. Not to be confused with <span id="html-tag">width</span>, because this is more flexible and it respects the flex direction.</p>
+                    <strong>All Values:</strong>
+                    <ul>
+                        <li><span id="html-tag">auto</span> (default): Uses the item's width/height</li>
+                        <li>Any length value (<span id="html-tag">200px</span>, <span id="html-tag">20em</span>, <span id="html-tag">50%</span>, etc)</li>
+                        <li><span id="html-tag">0</span>: Item starts with no size</li>
+                    </ul>
+                    <div class="flex-basis example">
+                        <div class="flex-basis-box-1">300px</div>
+                        <div class="flex-basis-box-2">0</div>
+                        <div class="flex-basis-box-3">50%</div>
+                    </div>
+                    <div class="flex-basis code">
+                        <code class="html-example-tag">
+                            .flex-basis .example{<br>
+                            &nbsp;&nbsp;display: flex;<br>
+                            &nbsp;&nbsp;border: 2px solid black;<br>
+                            &nbsp;&nbsp;height: 10vh;<br>
+                            &nbsp;&nbsp;flex: nowrap;<br>
+                            }<br>
+                            <br>
+                            .flex-basis-box-1 {<br>
+                            &nbsp;&nbsp;flex-basis: 300px;<br>
+                            }<br>
+                            <br>
+                            .flex-basis-box-2 {<br>
+                            &nbsp;&nbsp;flex-basis: 0;<br>
+                            }<br>
+                            <br>
+                            .flex-basis-box-3 {<br>
+                            &nbsp;&nbsp;flex-basis: 50%;<br>
+                            }
+                        </code>
+                    </div>
+                </details>
+
+                <details class="flex-items-properties align-self">
+                    <summary class="flex-items-properties-title">align-self</summary>
+                    <p>This property allows individual flex items to override the container's <span id="html-tag">align-items</span> setting. This was a game-changer when I needed one time to behave differently.</p>
+
+                    <div class="align-self-auto">
+                        <div class="align-self-auto description">
+                            <p><span id="html-tag">align-self: auto;</span></p>
+                            <p>Inherits from the parent's <span id="html-tag">align-items</span>, which in this case, the parent's <span id="html-tag">align-items</span> is <span id="html-tag">flex-end</span></p>
+                        </div>
+                        <div class="align-self-auto example">
+                            <div class="align-self-auto-box-1">one</div>
+                            <div class="align-self-auto-box-2">two</div>
+                            <div class="align-self-auto-box-3">three</div>
+                            <div class="align-self-auto-box-4">four</div>
+                            <div class="align-self-auto-box-5">five</div>
+                        </div>
+                    </div>
+
+                    <div class="align-self-flex-start">
+                        <div class="align-self-flex-start description">
+                            <p><span id="html-tag">align-self: flex-start;</span></p>
+                            <p>Align to the start of cross axis</p>
+                        </div>
+                        <div class="align-self-flex-start example">
+                            <div class="align-self-flex-start-box-1">one</div>
+                            <div class="align-self-flex-start-box-2">two</div>
+                            <div class="align-self-flex-start-box-3">there</div>
+                            <div class="align-self-flex-start-box-4">four</div>
+                            <div class="align-self-flex-start-box-5">five (flex-start)</div>
+                        </div>
+                    </div>
+
+                    <div class="align-self-flex-end">
+                        <div class="align-self-flex-end description">
+                            <p><span id="html-tag">align-self: flex-end;</span></p>
+                            <p>Align to end of cross axis</p>
+                        </div>
+                        <div class="align-self-flex-end example">
+                            <div class="align-self-flex-end-box-1">one</div>
+                            <div class="align-self-flex-end-box-2">two</div>
+                            <div class="align-self-flex-end-box-3">three (flex-end)</div>
+                            <div class="align-self-flex-end-box-4">four</div>
+                            <div class="align-self-flex-end-box-5">five (flex-end)</div>
+                        </div>
+                    </div>
+
+                    <div class="align-self-center">
+                        <div class="align-self-center description">
+                            <p><span id="html-tag">align-self: center;</span></p>
+                            <p>Center on cross axis</p>
+                        </div>
+                        <div class="align-self-center example">
+                            <div class="align-self-center-box-1">one (center)</div>
+                            <div class="align-self-center-box-2">two</div>
+                            <div class="align-self-center-box-3">three</div>
+                            <div class="align-self-center-box-4">four</div>
+                            <div class="align-self-center-box-5">five (center)</div>
+                        </div>
+                    </div>
+
+                    <div class="align-self-baseline">
+                        <div class="align-self-baseline description">
+                        <p><span id="html-tag">align-self: baseline;</span></p>
+                        <p>Align to text baseline</p>
+                        </div>
+                        <div class="align-self-baseline example">
+                            <div class="align-self-baseline-box-1">one</div>
+                            <div class="align-self-baseline-box-2">two (baseline)</div>
+                            <div class="align-self-baseline-box-3">three</div>
+                            <div class="align-self-baseline-box-4">four</div>
+                            <div class="align-self-baseline-box-5">five</div>
+                        </div>
+                    </div>
+
+                    <div class="align-self-stretch">
+                        <div class="align-self-stretch description">
+                            <p><span id="html-tag">align-self: stretch;</span></p>
+                            <p>Stretch to fill container height</p>
+                        </div>
+                        <div class="align-self-stretch example">
+                            <div class="align-self-stretch-box-1">one (stretch)</div>
+                            <div class="align-self-stretch-box-2">two</div>
+                            <div class="align-self-stretch-box-3">three</div>
+                            <div class="align-self-stretch-box-4">four (stretch)</div>
+                            <div class="align-self-stretch-box-5">five</div>
+                        </div>
+                    </div>
+                    </details>
+
+                <details class="flex-item-properties order">
+                    <summary class="flex-items-properties-title">order</summary>
+                    <div class="flex-items-order">
+                        <div class="flex-items-order description">
+                            <p><span id="html-tag">order: 1 (or any integer);</span></p>
+                            <p>This property controls the visual order of flex items without changing the HTML structure. This blew my mind when I first discovered it!</p>
+                        </div>
+                            <div class="flex-items-order example">
+                                <div class="flex-items-order-box-1">box 1, to be in the middle</div>
+                                <div class="flex-items-order-box-2">box 2, to be on the right</div>
+                                <div class="flex-items-order-box-3">box 3, to be on the left</div>
+                            </div>
+                    </div>
+                </details>
+            </section>
+
+            <section class="wrapping-up">
+                <h2>Wrapping Up</h2>
+                <p>These flex item properties transformed how I approach layout design. I'm still trying to understand them, but with more practice, I'm sure I'll be able to get the hang of it. The key is to keep practicing and experimenting, and see how these properties interact with each other.</p>
+                <p>Flexbox is about flexibility. These properties are able to give me precise control over how that flexibility behaves. It's time to get comfortable with them!</p>
+            </section>
+        </article>
+    </main>
+</body>
+</html>
