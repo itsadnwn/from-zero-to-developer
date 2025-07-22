@@ -1,46 +1,46 @@
 .box1 {
     background: #fbb4ae;
-    width: 15vw;
+    width: 50px;
 }
 
 .box2 {
     background: #b3cde3;
-    width: 15vw;
+    width: 50px;
 }
 
 .box3 {
     background: #ccebc6;
-    width: 15vw;
+    width: 50px;
 }
 
 .box4 {
     background: #decbe4;
-    width: 15vw;
+    width: 50px;
 }
 
 .box5 {
     background: #fed9a6;
-    width: 15vw;
+    width: 50px;
 }
 
 .box6 {
     background: #e4e0e1;
-    width: 15vw;
+    width: 100px;
 }
 
 .box7 {
     background: #d6c0b3;
-    width: 15vw;
+    width: 100px;
 }
 
 .box8 {
     background: #ab886d;
-    width: 15vw;
+    width: 100px;
 }
 
 .box9 {
     background: #493628;
-    width: 15vw;
+    width: 100px;
 }
 
 .flex-direction-row .example {

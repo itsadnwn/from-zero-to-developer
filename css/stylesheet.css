@@ -2,20 +2,82 @@
     font-family: Montserrat, sans-serif;
 }
 
+body {
+    min-width: 50vw;
+    max-width: 75vw;
+    margin: 5vw auto;
+    background-color: #ffffff;
+    padding: 2vh 15vw;
+}
+
+header {
+    margin-bottom: 5vh;
+}
+
+/* home navigation */
+.navigation {
+    display: inline-block;
+}
+
+.navigation a {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    color: #3b3b3b;
+    text-decoration: none;
+}
+
+.navigation a:hover {
+    text-decoration: underline;
+}
+
+.about {
+    padding-right: 25px;
+    border-right: 0.5px solid #3b3b3b;
+}
+
+.learning-code, .learning-journey {
+    padding-left: 25px;
+    padding-right: 25px;
+    border-right: 0.5px solid #3b3b3b;
+}
+
+/* posts navigation */
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.posts {
+    padding-left: 25px;
+}
+
+/* overall texts */
+p {
+    line-height: 1.7em;
+}
+
+/* about section */
+.profile-pic {
+    border-radius: 50%;
+}
+
+section {
+    margin-bottom: 5vh;
+}
+
 ul.goals {
     list-style-type: "✔️";
 }
 
-ul.goals li {
+ul li {
     padding-left: 5px;
+    padding-top: 1%;
+    font-size: 15px;
 }
 
 ul.blog {
     list-style-type: "📝";
-}
-
-ul.blog li {
-    padding-left: 5px;
 }
 
 #html-tag {
